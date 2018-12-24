@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, FormControl, FormGroup } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { actionCreators } from '../store/Search';
 
 export class Search extends Component {
   constructor(props){
@@ -57,3 +60,8 @@ export class Search extends Component {
     return <div></div>
   }
 }
+
+export default connect(
+  state => state.podcasts,
+  dispatch => bindActionCreators(actionCreators, dispatch)
+)(Search);
