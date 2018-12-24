@@ -27,8 +27,7 @@ export class Search extends Component {
     return (
       <Grid fluid style={{marginTop: '10%'}}>
         <Row>
-          <Col sm={4}>
-          </Col>
+          <Col sm={4} />
           <Col sm={4}>
           <FormGroup>
               <FormControl onKeyDown={this.onKeyDown} type="text" placeholder="Search" value={this.state.searchText} onChange={this.onSearchTextChanged} />
