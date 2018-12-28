@@ -46,20 +46,22 @@ export class Search extends Component {
       );
   }
 
-  renderData(){
-    if(this.props.podcasts !== undefined){
-      var pods = this.props.podcasts.map(p =>{
-         <li>
-          {p.collectionName}
-        </li>
-      });
-      return <ul>
-        {pods}
-      </ul>
-    }
-    return <div></div>
+   renderData(){
+    return this.props.searching 
+      ? <div> {this.renderLoadingSpinner()} </div>
+      : <ul> {this.props.podcasts.map(p => <PodcastResult podcast={p} /> )} </ul>
   }
-}
+
+  renderLoadingSpinner(){
+    return <div className='loading-podcasts' 
+                style={{display:'flex', justifyContent: 'center', alignItems:'center', marginTop: '30%'}}>
+      <GridLoader 
+        sizeUnit={'px'}
+        size={50}
+        color={'#333333'}
+        loading={this.props.searching} />
+    </div>
+  }
 
 export default connect(
   state => state.podcasts,
