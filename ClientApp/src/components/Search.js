@@ -3,25 +3,14 @@ import { Grid, Row, Col, FormControl, FormGroup } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store/Search';
+import { GridLoader } from 'react-spinners';
+import PodcastResult from './PodcastResult';
 
-export class Search extends Component {
-  constructor(props){
-    super(props);
-    
-    this.state = {searchText: ""};
-
-    this.onSearchTextChanged = this.onSearchTextChanged.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
-
-  onSearchTextChanged(e){  
-    this.setState({searchText: e.target.value});
-    console.log("searchText - " + this.state.searchText);
-  }
+class Search extends Component {
 
   onKeyDown(e){
     if(e.keyCode === 13){
-      this.props.onSearch(this.state.searchText);
+      this.props.requestSearchPodcasts(e.currentTarget.value);
       console.log("Enter clicked");
     }
   }
@@ -33,14 +22,14 @@ export class Search extends Component {
           <Col sm={4} />
           <Col sm={4}>
           <FormGroup>
-              <FormControl onKeyDown={this.onKeyDown} type="text" placeholder="Search" value={this.state.searchText} onChange={this.onSearchTextChanged} />
+              <FormControl onKeyDown={e => this.onKeyDown(e)} type="text" placeholder="Search" />
           </FormGroup> 
           </Col>
           <Col sm={4}>
           </Col>
         </Row>
+          {this.renderData()}
         <Row>
-          { this.renderData() }
         </Row>
       </Grid>
       );
@@ -62,8 +51,9 @@ export class Search extends Component {
         loading={this.props.searching} />
     </div>
   }
+}
 
 export default connect(
-  state => state.podcasts,
+  state => state.search,
   dispatch => bindActionCreators(actionCreators, dispatch)
 )(Search);

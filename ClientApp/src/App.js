@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import Layout from './components/Layout';
 import Counter from './components/Counter';
 import FetchData from './components/FetchData';
-import { Search } from './components/Search';
+import Search  from './components/Search';
 
 export default () => (
   <Layout>
