@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './PodcastResult.css';
 
 const PodcastResult = ({podcast}) => (
     <li>
-           <div>
-             {podcast.collectionName}
+           <div className='grid-container'>
+                <div className='grid-item'>
+                    <img src={podcast.artworkUrl100} />
+                </div>
+                <div className='grid-item'>
+                    <div>
+                         {podcast.collectionName}
+                    </div>
+                    <div>
+                        {podcast.artistName}
+                    </div>
+                </div>
            </div>
-           <div>
-               {podcast.artistName}
-           </div>
-           <div>
-               Description: {podcast.longDescription}
-           </div>
-           <img src={podcast.artworkUrl100} />
+           
     </li>
 );
 
@@ -23,7 +28,7 @@ PodcastResult.PropTypes = {
         artistName: PropTypes.string,
         collectionName: PropTypes.string,
         collectionCensoredName: PropTypes.string,
-        artistViewUrl: PropTypes.string, 
+        artistViewUrl: PropTypes.string,
         collectionViewUrl :PropTypes.string,
         artworkUrl100: PropTypes.string,
         releaseDate: PropTypes.string,
