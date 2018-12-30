@@ -38,7 +38,7 @@ class Search extends Component {
    renderData(){
     return this.props.searching 
       ? <div> {this.renderLoadingSpinner()} </div>
-      : <ul> {this.props.podcasts.map(p => <PodcastResult podcast={p} /> )} </ul>
+      : <ul> {this.props.podcasts.map(p => <PodcastResult podcast={p} requestGetFeed={this.props.requestGetFeed}/> )} </ul>
   }
 
   renderLoadingSpinner(){

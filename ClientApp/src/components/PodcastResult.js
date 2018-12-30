@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './PodcastResult.css';
 
-const PodcastResult = ({podcast, onNavigateToPodcast}) => (
+const PodcastResult = ({podcast, requestGetFeed}) => (
     <li>
           <div className='podcast-result-container'
-               onClick={() => onNavigateToPodcast()}>
+               onClick={() => requestGetFeed(podcast.collectionId)}>
           <div className='grid-container'>
                 <div className='grid-item'>
                     <img src={podcast.artworkUrl100} />
@@ -42,7 +42,8 @@ PodcastResult.PropTypes = {
         copyright: PropTypes.string,
         longDescription: PropTypes.string,
         feedUrl: PropTypes.string,
-    })
+    }),
+    onRequestFeed: PropTypes.func.isRequired
 };
 
 export default PodcastResult;
