@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './PodcastResult.css';
 
-const PodcastResult = ({podcast}) => (
+const PodcastResult = ({podcast, onNavigateToPodcast}) => (
     <li>
-          <div className='podcast-result-container'>
+          <div className='podcast-result-container'
+               onClick={() => onNavigateToPodcast()}>
           <div className='grid-container'>
                 <div className='grid-item'>
                     <img src={podcast.artworkUrl100} />
