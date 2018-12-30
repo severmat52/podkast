@@ -4,12 +4,13 @@ import './PodcastResult.css';
 
 const PodcastResult = ({podcast}) => (
     <li>
-           <div className='grid-container'>
+          <div className='podcast-result-container'>
+          <div className='grid-container'>
                 <div className='grid-item'>
                     <img src={podcast.artworkUrl100} />
                 </div>
                 <div className='grid-item'>
-                    <div>
+                    <div style={{fontWeight:"bold"}}>
                          {podcast.collectionName}
                     </div>
                     <div>
@@ -17,7 +18,7 @@ const PodcastResult = ({podcast}) => (
                     </div>
                 </div>
            </div>
-           
+          </div>
     </li>
 );
 
