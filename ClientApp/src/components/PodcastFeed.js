@@ -3,11 +3,12 @@ import { actionCreators } from '../store/Search';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { GridLoader } from 'react-spinners';
+import FeedItem from './Feed/FeedItem';
 
 class PodcastFeed extends Component{
     render(){
         return(
-            <div>
+            <div style={{background: 'black'}}>
                 { this.props.loadingFeed ? this.renderLoadingSpinner() : this.renderFeedItems() }
             </div>
         );
@@ -16,7 +17,7 @@ class PodcastFeed extends Component{
     renderFeedItems(){
             if(this.props.feed !== undefined){
                 const items = this.props.feed.items;
-                const mappedItems = items.map(i => <li> {i.title} </li>);
+                const mappedItems = items.map(i => <FeedItem item={i} />);
                 return <ul>
                     {mappedItems}
                 </ul>;

@@ -1,0 +1,16 @@
+
+  
+  .feed-grid-container {
+      display: grid;
+      grid-template-columns: 5% 50% 15% 10% 10% 10% ;
+      border-bottom: 1px solid gray;
+      height: 72px;
+    }
+  
+    .feed-item {
+      font-size: 15px;
+      text-align: left;
+      text-overflow: ellipsis;
+      color: rgb(211, 211, 211);
+      vertical-align: middle;
+    }
