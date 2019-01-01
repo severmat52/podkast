@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './PodcastResult.css';
+import { Link } from 'react-router-dom';
 
 const PodcastResult = ({podcast, requestGetFeed}) => (
     <li>
+        <Link to={'/feed'}>
           <div className='podcast-result-container'
                onClick={() => requestGetFeed(podcast.collectionId)}>
           <div className='grid-container'>
@@ -20,6 +22,7 @@ const PodcastResult = ({podcast, requestGetFeed}) => (
                 </div>
            </div>
           </div>
+        </Link>
     </li>
 );
 
