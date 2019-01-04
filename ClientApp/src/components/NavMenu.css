@@ -11,6 +11,10 @@
     color: white;
 }
 
+.navbar{
+    background-color: #375a7f;
+}
+
 @media (min-width: 768px) {
     /* On large screens, convert the nav menu to a vertical sidebar */
     .navbar {

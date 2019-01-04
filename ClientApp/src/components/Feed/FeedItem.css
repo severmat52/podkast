@@ -10,6 +10,7 @@
     .feed-item {
       font-size: 15px;
       text-align: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-overflow: ellipsis;
       color: rgb(211, 211, 211);
       vertical-align: middle;

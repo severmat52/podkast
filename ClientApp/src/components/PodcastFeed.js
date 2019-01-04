@@ -8,7 +8,7 @@ import FeedItem from './Feed/FeedItem';
 class PodcastFeed extends Component{
     render(){
         return(
-            <div style={{background: 'black'}}>
+            <div>
                 { this.props.loadingFeed ? this.renderLoadingSpinner() : this.renderFeedItems() }
             </div>
         );

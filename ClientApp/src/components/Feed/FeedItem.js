@@ -10,13 +10,20 @@ const FeedItem = ({item}) => (
                          {}
                 </div>
                <div className='feed-item'>
-                    {item.title}
+                <p>
+                {item.title}
+
+                </p>
                </div>
                <div className='feed-item'>
-                    {item.datePublished}
-               </div>
+                    <p>
+                        {item.datePublished}
+                    </p>
+                </div>
                <div className='feed-item'>
-                    {item.mediaLength}
+                    <p>
+                        {item.mediaLength}
+                    </p>
                </div>
            </div>
           </div>
