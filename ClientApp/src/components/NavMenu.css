@@ -2,13 +2,21 @@
     margin-right: 10px;
 }
 
+.navbar .navbar-nav a{
+    color: white;
+}
+
+.navbar-header a{
+    color: white;
+}
+
 /* Highlighting rules for nav menu items */
 .navbar .navbar-nav .active a,
 .navbar .navbar-nav .active a:hover,
 .navbar .navbar-nav .active a:focus {
     background-image: none;
     background-color: #4189C7;
-    color: white;
+    color: #222;
 }
 
 .navbar{
@@ -19,7 +27,7 @@
     /* On large screens, convert the nav menu to a vertical sidebar */
     .navbar {
         height: 100%;
-        width: calc(25% - 20px);
+        width: calc(18% - 20px);
     }
     .navbar {
         border-radius: 0;

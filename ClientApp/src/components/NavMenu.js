@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
 
 export default props => (
-  <Navbar inverse fixedTop fluid bsStyle="primary" collapseOnSelect>
+  <Navbar fixedTop fluid bsStyle="primary" collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to={'/'}>podcast_master</Link>
@@ -15,7 +15,7 @@ export default props => (
     <Navbar.Collapse>
       <Nav>
         <LinkContainer to={'/'} exact>
-          <NavItem>
+          <NavItem >
             <Glyphicon glyph='home' /> Home
           </NavItem>
         </LinkContainer>

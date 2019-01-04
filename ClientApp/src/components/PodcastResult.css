@@ -1,7 +1,5 @@
 .podcast-result-container{
-  border: solid rgba(0, 0, 0, 0.8) 1px;
-  border-radius: 20px;
-  background-color: gray;
+border-bottom: solid 1px gray;
   padding: 10px;
   margin-bottom: 10px;
   cursor: pointer;

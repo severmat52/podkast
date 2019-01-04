@@ -47,7 +47,7 @@ class Search extends Component {
       <GridLoader 
         sizeUnit={'px'}
         size={50}
-        color={'#333333'}
+        color={'#375a7f'}
         loading={this.props.searching} />
     </div>
   }

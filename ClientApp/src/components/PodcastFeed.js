@@ -30,7 +30,7 @@ class PodcastFeed extends Component{
           <GridLoader 
             sizeUnit={'px'}
             size={50}
-            color={'#333333'}
+            color={'#375a7f'}
             loading={true} />
         </div>
       }
