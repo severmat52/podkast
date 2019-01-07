@@ -1,0 +1,10 @@
+.audio-player{
+    position: fixed;
+    z-index: 1031;
+    bottom: 0; 
+    height: 20px;
+    color: red;
+    background-color: red;
+    overflow: hidden;
+    width: 100%;
+} 
