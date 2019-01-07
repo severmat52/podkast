@@ -2,9 +2,17 @@
     position: fixed;
     z-index: 1031;
     bottom: 0; 
-    height: 20px;
-    color: red;
-    background-color: red;
+    height: 80px;
+    color: #222;
+    background-color: #222;
     overflow: hidden;
+    border: solid 1px #375a7f;
     width: 100%;
 } 
+
+.audio-player-button-collapsed{
+    position: fixed;
+    z-index: 1031;
+    bottom: 0; 
+    border: solid 1px #375a7f;
+}
