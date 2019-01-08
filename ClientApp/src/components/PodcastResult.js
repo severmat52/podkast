@@ -7,7 +7,7 @@ const PodcastResult = ({podcast, requestGetFeed}) => (
     <li>
         <Link to={'/feed'}>
           <div className='podcast-result-container'
-               onClick={() => requestGetFeed(podcast.collectionId)}>
+               onClick={() => requestGetFeed(podcast)}>
           <div className='grid-container'>
                 <div className='grid-item'>
                     <img src={podcast.artworkUrl100} />

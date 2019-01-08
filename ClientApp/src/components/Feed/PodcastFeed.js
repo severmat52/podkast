@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import { actionCreators } from '../store/Search';
+import { actionCreators } from '../../store/Search';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { GridLoader } from 'react-spinners';
-import FeedItem from './Feed/FeedItem';
+import FeedItem from './FeedItem';
 
 class PodcastFeed extends Component{
     render(){
+        const podcast = this.props.selectedPodcast;
         return(
             <div>
+                <div>
+                    <img src={podcast.artworkUrl100}  />
+                </div>
+                            <div>
                 { this.props.loadingFeed ? this.renderLoadingSpinner() : this.renderFeedItems() }
+            </div>
             </div>
         );
     }

@@ -2,11 +2,13 @@ const requestSearchPodcastsType = 'REQUEST_SEARCH_PODCASTS';
 const receiveSearchPodcastsType = 'RECEIVE_SEARCH_PODCASTS';
 const requestPodcastFeedType = 'REQUEST_GET_FEED';
 const receivePodcastFeedType = 'RECEIVE_PODCAST_FEED';
+
 const initialState = {
   podcasts: [],
   feed: [],
   searching: false,
-  loadingFeed: false
+  loadingFeed: false,
+  selectedPodcast: undefined
 };
 
 export const actionCreators = {
@@ -26,18 +28,19 @@ export const actionCreators = {
     });
   },
 
-  requestGetFeed: podcastId => async (dispatch) => {
+  requestGetFeed: (podcast) => async (dispatch) => {
     dispatch({
-      type: requestPodcastFeedType
+      type: requestPodcastFeedType,
+      podcast
     });
-    const url = `api/Search/Feed/${podcastId}`;
+    const url = `api/Search/Feed/${podcast.collectionId}`;
     const response = await fetch(url);
     const feed = (await response.json());
     dispatch({
       type: receivePodcastFeedType,
       feed
     });
-  }
+  },
 };
 
 export const reducer = (state, action) => {
@@ -61,7 +64,8 @@ export const reducer = (state, action) => {
   if (action.type === requestPodcastFeedType) {
     return {
       ...state,
-      loadingFeed: true
+      loadingFeed: true,
+      selectedPodcast: action.podcast
     }
   }
   if (action.type === receivePodcastFeedType) {
