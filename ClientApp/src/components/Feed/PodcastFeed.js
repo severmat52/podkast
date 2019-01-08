@@ -4,20 +4,31 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { GridLoader } from 'react-spinners';
 import FeedItem from './FeedItem';
+import './PodcastFeed.css';
 
 class PodcastFeed extends Component{
     render(){
-        const podcast = this.props.selectedPodcast;
         return(
             <div>
-                <div>
-                    <img src={podcast.artworkUrl100}  />
+                <div className='podcast-details'>
+                {this.renderPodcastDetails()}
                 </div>
-                            <div>
-                { this.props.loadingFeed ? this.renderLoadingSpinner() : this.renderFeedItems() }
-            </div>
+                <div className='feed-list'>
+                    { this.props.loadingFeed ? this.renderLoadingSpinner() : this.renderFeedItems() }
+                </div>
             </div>
         );
+    }
+
+    renderPodcastDetails(){
+        const podcast = this.props.selectedPodcast;
+        return <div className='podcast-details-container'>
+                    <img className='podcast-details-grid-item'
+                         src={podcast.artworkUrl100}  />
+                    <div className='podcast-details-grid-item'>
+
+                    </div>
+            </div>;
     }
 
     renderFeedItems(){
