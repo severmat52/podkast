@@ -17,7 +17,7 @@ class AudioPlayer extends Component{
         return(
             <div className='audio-player'>
             <figure>
-            <button onClick={this.props.collapseAudioPlayer()}>
+            <button onClick={this.props.collapseAudioPlayer}>
                 <Glyphicon glyph='chevron-up' />
             </button>
 
@@ -27,7 +27,7 @@ class AudioPlayer extends Component{
     }
 
     renderCollapsed(){
-        return  (<button className='audio-player-button-collapsed' onClick={this.props.collapseAudioPlayer()}>
+        return  (<button className='audio-player-button-collapsed' onClick={this.props.collapseAudioPlayer}>
                 <Glyphicon glyph='chevron-up' />
             </button>);
     }
