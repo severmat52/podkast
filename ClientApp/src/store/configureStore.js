@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as Search from './Search';
+import * as AudioPlayer from './AudioPlayer';
 
 export default function configureStore(history, initialState) {
   const reducers = {
-    search: Search.reducer
+    search: Search.reducer,
+    audioPlayer: AudioPlayer.reducer
   };
 
   const middleware = [
