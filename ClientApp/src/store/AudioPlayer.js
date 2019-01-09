@@ -1,40 +1,25 @@
-import React, { Component } from 'react';
-import { Glyphicon } from 'react-bootstrap';
-import './AudioPlayer.css';
-import { actionCreators } from '../../store/AudioPlayer';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+const requestCollapseType = 'REQUEST_COLLAPSE_TYPE';
 
-class AudioPlayer extends Component{
+const initialState = {
+  collapsed: false
+};
+
+export const actionCreators = {
+    collapseAudioPlayer: () => async (dispatch) => {
+        dispatch({ type: requestCollapseType });
+    }
     
-    render(){
-        return this.props.collapsed 
-            ? this.renderCollapsed()
-            : this.renderAudioPlayer();
-    }
+};
 
-    renderAudioPlayer(){
-        return(
-            <div className='audio-player'>
-            <figure>
-            <button onClick={this.props.collapseAudioPlayer()}>
-                <Glyphicon glyph='chevron-up' />
-            </button>
+export const reducer = (state, action) => {
+  state = state || initialState;
 
-            </figure>
-            </div>
-        );
-    }
+  if (action.type === requestCollapseType) {
+    return {
+      ...state,
+      collapsed: !state.collapsed
+    };
+  }
 
-    renderCollapsed(){
-        return  (<button className='audio-player-button-collapsed' onClick={this.props.collapseAudioPlayer()}>
-                <Glyphicon glyph='chevron-up' />
-            </button>);
-    }
-}
-
-
-export default connect(
-    state => state.audioPlayer,
-    dispatch => bindActionCreators(actionCreators, dispatch)
-  )(AudioPlayer);
+  return state;
+};
