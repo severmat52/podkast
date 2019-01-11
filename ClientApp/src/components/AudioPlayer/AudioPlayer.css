@@ -16,3 +16,12 @@
     bottom: 0; 
     border: solid 1px #375a7f;
 }
+
+.podcast-player-controls-grid{
+    display: grid;
+    grid-template-columns: repeat(3,33%);
+}
+
+.playOrPauseButton{
+    
+}
