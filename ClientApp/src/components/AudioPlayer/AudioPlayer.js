@@ -35,6 +35,7 @@ class AudioPlayer extends Component{
                         </button>
                     </div>
                 </div>
+                <input type='range' />
             </div>
             </div>
         );
