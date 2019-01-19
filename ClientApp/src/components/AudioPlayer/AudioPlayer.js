@@ -35,11 +35,22 @@ class AudioPlayer extends Component{
                         </button>
                     </div>
                 </div>
-                <input type='range' />
+                <div id='audioSlider'>
+                    <label>{this.props.audio.played.length}</label>
+                    <input type='range' max={this.getFormattedMinutesAndSeconds(this.props.audio.duration)}/>
+                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.duration)}</label>
+                </div>
             </div>
             </div>
         );
     }
+
+    getFormattedMinutesAndSeconds(time){
+        const minutes = Math.round(time / 60);
+        const seconds = Math.round(time % 60);
+        return `${minutes}:${seconds}`;
+    }
+
 
     renderCollapsed(){
         return  (<button className='audio-player-button-collapsed' onClick={this.props.collapseAudioPlayer}>
