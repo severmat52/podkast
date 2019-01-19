@@ -16,26 +16,26 @@ class AudioPlayer extends Component{
     renderAudioPlayer(){
         return(
             <div className='audio-player'>
-            <figure>
-            <button onClick={this.props.collapseAudioPlayer}>
+             <button onClick={this.props.collapseAudioPlayer}>
                 <Glyphicon glyph='chevron-up' />
             </button>
-            <div className='podcast-player-controls-grid'>
-                <div className='podcast-player-controls-grid-item'>
-                    <button id='rewindButton'>
-                        Rewind
-                    </button>
-                </div>
-                <div className='podcast-player-controls-grid-item'>
-                {this.renderPlayOrPause()}
-                </div>
-                <div className='podcast-player-controls-grid-item'>
-                    <button id='fastForwardButton'>
-                        Forward
-                    </button>
+            <div id='audio-player-grid'>
+               <div className='podcast-player-controls-grid'>
+                  <div className='podcast-player-controls-grid-item'>
+                        <button id='rewindButton'>
+                            Rewind
+                        </button>
+                 </div>
+                     <div className='podcast-player-controls-grid-item'>
+                 {this.renderPlayOrPause()}
+                   </div>
+                    <div className='podcast-player-controls-grid-item'>
+                        <button id='fastForwardButton'>
+                            Forward
+                        </button>
+                    </div>
                 </div>
             </div>
-            </figure>
             </div>
         );
     }
