@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './FeedItem.css';
 
-const FeedItem = ({item}) => (
+const FeedItem = ({item, onPlay}) => (
     <li>
           <div className='podcast-feed-container'>
           <div className='feed-grid-container'>
@@ -24,6 +24,9 @@ const FeedItem = ({item}) => (
                     <p>
                         {item.mediaLength}
                     </p>
+               </div>
+               <div>
+                   <button onClick={() => }> Play </button>
                </div>
            </div>
           </div>

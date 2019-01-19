@@ -21,6 +21,10 @@ export const actionCreators = {
     playAudioPlayer: (audio) => (dispatch) => {
       audio.play();
       dispatch({type: requestPlayType})
+    }, 
+
+    seekTo: (audio, seconds) => (dispatch) => {
+      audio.fastSeek(seconds);
     }
 
     
