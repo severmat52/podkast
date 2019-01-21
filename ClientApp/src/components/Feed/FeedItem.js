@@ -26,7 +26,7 @@ const FeedItem = ({item, onPlay}) => (
                     </p>
                </div>
                <div>
-                   <button onClick={() => }> Play </button>
+                 {/* //  <button onClick={() => }> Play </button> */}
                </div>
            </div>
           </div>

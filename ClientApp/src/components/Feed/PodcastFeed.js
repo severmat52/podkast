@@ -32,6 +32,7 @@ class PodcastFeed extends Component{
     }
 
     renderFeedItems(){
+        const audioStore = createStore
             if(this.props.feed !== undefined){
                 const items = this.props.feed.items;
                 const mappedItems = items.map(i => <FeedItem item={i} onPlay={} />);
