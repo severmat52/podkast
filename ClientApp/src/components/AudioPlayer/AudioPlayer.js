@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 class AudioPlayer extends Component{
     
     render(){
+        this.props.reloadAudio();
         return this.props.collapsed 
             ? this.renderCollapsed()
             : this.renderAudioPlayer();
@@ -39,7 +40,7 @@ class AudioPlayer extends Component{
                     <label>{this.getFormattedMinutesAndSeconds(this.props.audio.played.length)}</label>
                     <input type='range'
                            value={this.props.audio.played.length}
-                            onChange={e => this.props.seekTo(this.props.audio, e.target.value)}
+                           onChange={e => this.props.seekTo(this.props.audio, e.target.value)}
                            max={this.getFormattedMinutesAndSeconds(this.props.audio.duration)}/>
                     <label>{this.getFormattedMinutesAndSeconds(this.props.audio.duration)}</label>
                 </div>
@@ -63,11 +64,11 @@ class AudioPlayer extends Component{
 
     renderPlayOrPause(){
         if(!this.props.playing){
-            return <button id='playButton' classButton='playOrPauseButton' onClick={() => this.props.playAudioPlayer(this.props.audio)}>
+            return <button id='playButton' className='playOrPauseButton' onClick={() => this.props.playAudioPlayer(this.props.audio)}>
                 Play
             </button>;
         }
-        return <button id='pauseButton' classButton='playOrPauseButton' onClick={() => this.props.pauseAudioPlayer(this.props.audio)}>
+        return <button id='pauseButton' className='playOrPauseButton' onClick={() => this.props.pauseAudioPlayer(this.props.audio)}>
             Pause
         </button>; 
     }
