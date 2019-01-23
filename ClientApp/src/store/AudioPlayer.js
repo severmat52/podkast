@@ -9,7 +9,6 @@ const initialState = {
   audio: new Audio('https://rss.art19.com/episodes/902742a8-53d8-4125-b64d-139595e6bfe3.mp3')
 };
 
-
 export const actionCreators = {
     reloadAudio:  () => (dispatch) => {
       dispatch({type: reloadAudioType});
@@ -62,7 +61,6 @@ export const reducer = (state, action) => {
   }
 
   if(action.type === reloadAudioType){
-    reloadAudio(state);
     return {
       ...state
     };
@@ -70,9 +68,3 @@ export const reducer = (state, action) => {
 
   return state;
 };
-
-const reloadAudio = (state) => {
-  if(state.audio){
-    state.audio.load();
-  }
-}

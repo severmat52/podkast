@@ -6,12 +6,26 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class AudioPlayer extends Component{
-    
     render(){
         this.props.reloadAudio();
         return this.props.collapsed 
             ? this.renderCollapsed()
             : this.renderAudioPlayer();
+    }
+
+    componentDidMount(){
+        this.addAudioEventListeners(this.props.audio);
+    }
+
+    componentDidUpdate(prevProps){
+        this.addAudioEventListeners(this.props.audio);
+    }
+
+    addAudioEventListeners(audio){
+        if(audio){
+            audio.loadedmetadata = () => this.setState({});
+            audio.ontimeupdate = () => this.setState({});
+        }
     }
 
     renderAudioPlayer(){
@@ -37,7 +51,7 @@ class AudioPlayer extends Component{
                     </div>
                 </div>
                 <div id='audioSlider'>
-                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.played.length)}</label>
+                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.currentTime)}</label>
                     <input type='range'
                            value={this.props.audio.played.length}
                            onChange={e => this.props.seekTo(this.props.audio, e.target.value)}
@@ -52,7 +66,8 @@ class AudioPlayer extends Component{
     getFormattedMinutesAndSeconds(time){
         const minutes = Math.round(time / 60);
         const seconds = Math.round(time % 60);
-        return `${minutes}:${seconds}`;
+        const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+        return `${minutes}:${formattedSeconds}`;
     }
 
 
