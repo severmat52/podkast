@@ -10,7 +10,7 @@
     width: 100%;
 } 
 
-.audio-player-button-collapsed{
+#audio-player-button-collapsed{
     position: fixed;
     z-index: 1031;
     bottom: 0; 
@@ -24,7 +24,7 @@
 
 .podcast-player-controls-grid{
     display: grid;
-    grid-template-columns: repeat(3,33%);
+    grid-template-columns: repeat(4,25%);
 }
 
 #audioSlider{
@@ -34,9 +34,24 @@
 
 label {
     color: white;
-    margin-left: 10px;
-    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
 }
-.playOrPauseButton{
-    
+
+.audioPlayerButton{
+    height: 45px;
+    width: 45px;
+    border: solid;
+    border-width: 5px;
+    border-radius: 20%;
+    border-color: #375a7f;
+    background-color: #222;
+    color:  #375a7f;
+}
+
+.collapseOrOpenButton{
+    border: solid #375a7f;
+    background-color: #222;
+    color:  #375a7f;
 }

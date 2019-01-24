@@ -31,22 +31,23 @@ class AudioPlayer extends Component{
     renderAudioPlayer(){
         return(
             <div className='audio-player'>
-             <button onClick={this.props.collapseAudioPlayer}>
+             <button className='collapseOrOpenButton' onClick={this.props.collapseAudioPlayer}>
                 <Glyphicon glyph='chevron-up' />
             </button>
             <div id='audio-player-grid'>
                <div className='podcast-player-controls-grid'>
+                    <div className='podcast-player-controls-grid-item' />
                   <div className='podcast-player-controls-grid-item'>
-                        <button id='rewindButton'>
-                            Rewind
+                        <button id='rewindButton' className='audioPlayerButton'>
+                            <Glyphicon glyph='fast-backward' />
                         </button>
                  </div>
                      <div className='podcast-player-controls-grid-item'>
                  {this.renderPlayOrPause()}
                    </div>
                     <div className='podcast-player-controls-grid-item'>
-                        <button id='fastForwardButton'>
-                            Forward
+                        <button id='fastForwardButton' className='audioPlayerButton'>
+                            <Glyphicon glyph='fast-forward' />
                         </button>
                     </div>
                 </div>
@@ -72,19 +73,19 @@ class AudioPlayer extends Component{
 
 
     renderCollapsed(){
-        return  (<button className='audio-player-button-collapsed' onClick={this.props.collapseAudioPlayer}>
+        return  (<button id='audio-player-button-collapsed' className='collapseOrOpenButton' onClick={this.props.collapseAudioPlayer}>
                 <Glyphicon glyph='chevron-up' />
             </button>);
     }
 
     renderPlayOrPause(){
         if(!this.props.playing){
-            return <button id='playButton' className='playOrPauseButton' onClick={() => this.props.playAudioPlayer(this.props.audio)}>
-                Play
+            return <button id='playButton' className='audioPlayerButton' onClick={() => this.props.playAudioPlayer(this.props.audio)}>
+                <Glyphicon glyph='play'  />
             </button>;
         }
-        return <button id='pauseButton' className='playOrPauseButton' onClick={() => this.props.pauseAudioPlayer(this.props.audio)}>
-            Pause
+        return <button id='pauseButton' className='audioPlayerButton' onClick={() => this.props.pauseAudioPlayer(this.props.audio)}>
+                <Glyphicon glyph='play'  />
         </button>; 
     }
 }
