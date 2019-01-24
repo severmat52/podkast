@@ -4,6 +4,7 @@ import './AudioPlayer.css';
 import { actionCreators } from '../../store/AudioPlayer';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import AudioButton from '../Core/AudioButton';
 
 class AudioPlayer extends Component{
     render(){
@@ -38,17 +39,13 @@ class AudioPlayer extends Component{
                <div className='podcast-player-controls-grid'>
                     <div className='podcast-player-controls-grid-item' />
                   <div className='podcast-player-controls-grid-item'>
-                        <button id='rewindButton' className='audioPlayerButton'>
-                            <Glyphicon glyph='fast-backward' />
-                        </button>
+                        <AudioButton buttonStyle={controlButtonStyle} glyphicon='fast-backward' />
                  </div>
                      <div className='podcast-player-controls-grid-item'>
-                 {this.renderPlayOrPause()}
+                        {this.renderPlayOrPause()}
                    </div>
                     <div className='podcast-player-controls-grid-item'>
-                        <button id='fastForwardButton' className='audioPlayerButton'>
-                            <Glyphicon glyph='fast-forward' />
-                        </button>
+                        <AudioButton buttonStyle={controlButtonStyle} glyphicon='fast-forward' />
                     </div>
                 </div>
                 <div id='audioSlider'>
@@ -80,13 +77,9 @@ class AudioPlayer extends Component{
 
     renderPlayOrPause(){
         if(!this.props.playing){
-            return <button id='playButton' className='audioPlayerButton' onClick={() => this.props.playAudioPlayer(this.props.audio)}>
-                <Glyphicon glyph='play'  />
-            </button>;
+            return <AudioButton buttonStyle={controlButtonStyle} glyphicon='play' onClick={() => this.props.playAudioPlayer(this.props.audio)} />
         }
-        return <button id='pauseButton' className='audioPlayerButton' onClick={() => this.props.pauseAudioPlayer(this.props.audio)}>
-                <Glyphicon glyph='play'  />
-        </button>; 
+        return <AudioButton buttonStyle={controlButtonStyle} glyphicon='pause' onClick={() => this.props.pauseAudioPlayer(this.props.audio)} />;
     }
 }
 
@@ -95,3 +88,8 @@ export default connect(
     state => state.audioPlayer,
     dispatch => bindActionCreators(actionCreators, dispatch)
   )(AudioPlayer);
+
+  const controlButtonStyle = {
+      height: '45px',
+      width: '45px'
+  }

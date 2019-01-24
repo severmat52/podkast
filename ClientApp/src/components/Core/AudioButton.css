@@ -1,0 +1,8 @@
+.audioButton{
+    border: solid;
+    border-width: 5px;
+    border-radius: 20%;
+    border-color: #375a7f;
+    background-color: #222;
+    color:  #375a7f;
+}
