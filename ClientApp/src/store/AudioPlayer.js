@@ -29,7 +29,7 @@ export const actionCreators = {
 
     seekTo: (audio, seconds) => (dispatch) => {
       if(audio){
-        audio.fastSeek(seconds);
+        audio.currentTime = seconds;
       }
     }
 

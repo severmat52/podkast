@@ -53,9 +53,9 @@ class AudioPlayer extends Component{
                 <div id='audioSlider'>
                     <label>{this.getFormattedMinutesAndSeconds(this.props.audio.currentTime)}</label>
                     <input type='range'
-                           value={this.props.audio.played.length}
+                           value={this.props.audio.currentTime}
                            onChange={e => this.props.seekTo(this.props.audio, e.target.value)}
-                           max={this.getFormattedMinutesAndSeconds(this.props.audio.duration)}/>
+                           max={this.props.audio.duration}/>
                     <label>{this.getFormattedMinutesAndSeconds(this.props.audio.duration)}</label>
                 </div>
             </div>

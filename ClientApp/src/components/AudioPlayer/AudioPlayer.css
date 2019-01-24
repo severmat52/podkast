@@ -29,7 +29,7 @@
 
 #audioSlider{
     display: grid;
-    grid-template-columns: 5% 85% 10%;
+    grid-template-columns: 10% 80% 10%;
 }
 
 label {
