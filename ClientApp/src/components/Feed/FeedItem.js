@@ -6,13 +6,9 @@ const FeedItem = ({item, onPlay}) => (
     <li>
           <div className='podcast-feed-container'>
           <div className='feed-grid-container'>
-                <div className='feed-item'>
-                         {}
-                </div>
                <div className='feed-item'>
                 <p>
                 {item.title}
-
                 </p>
                </div>
                <div className='feed-item'>
@@ -25,6 +21,9 @@ const FeedItem = ({item, onPlay}) => (
                         {item.mediaLength}
                     </p>
                </div>
+               <div className='feed-item'>
+                         {}
+                </div>
                <div>
                  {/* //  <button onClick={() => }> Play </button> */}
                </div>
