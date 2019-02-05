@@ -18,4 +18,10 @@
       vertical-align: middle;
     }
 
+    #feedItemTitle{
+      align-content: flex-start;
+      position: absolute;
+      left: 50px;
+    }
+
     
