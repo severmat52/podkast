@@ -35,7 +35,7 @@ const FeedItem = ({item, onPlay}) => (
 const ConvertToDateString = (date) => {
     let Pad = (s) => s < 10 ? '0' + s : s;
     let d = new Date(date);
-    return [Pad(d.getDate()), Pad(d.getMonth() + 1), d.getFullYear()].join('/');
+    return [Pad(d.getMonth() + 1), Pad(d.getDate()), d.getFullYear()].join('/');
 } 
 
 FeedItem.PropTypes = {
