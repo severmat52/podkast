@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Xml;
 using System.Xml.XPath;
+using podcastmaster.Service.Parser;
+using podcastmaster;
 
 namespace Podly.FeedParser.Xml
 {
@@ -204,6 +206,27 @@ namespace Podly.FeedParser.Xml
                 }
             }
 
+            return item;
+        }
+
+        private ITunesItem ParseItemForItunesData(XmlNode node)
+        {
+            var item  = new ITunesItem
+            {
+                Author = node.TrySelectSingleNode("itunes:author"),
+                Block = node.TrySelectSingleNode("itunes:block"),
+                Category = node.TrySelectSingleNode("itunes:category"),
+                Image = node.TrySelectSingleNode("itunes:image"),
+                Duration = node.TrySelectSingleNode("itunes:durations"),
+                Explicit = node.TrySelectSingleNode("itunes:explicit"),
+                IsClosedCaptioned = node.TrySelectSingleNode("itunes:isClosedCaptioned"),
+                Order = node.TrySelectSingleNode("itunes:order"),
+                Complete = node.TrySelectSingleNode("itunes:complete"),
+                NewFeedUrl = node.TrySelectSingleNode("itunes:new-feed-url"),
+                Owner = node.TrySelectSingleNode("itunes:owner"),
+                SubTitle = node.TrySelectSingleNode("itunes:subtitle"),
+                Summary = node.TrySelectSingleNode("itunes:summary")
+            };
             return item;
         }
 
