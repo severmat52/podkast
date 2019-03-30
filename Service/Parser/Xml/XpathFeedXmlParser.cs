@@ -218,7 +218,6 @@ namespace Podly.FeedParser.Xml
             {
                 Author = node.TrySelectSingleNode("itunesauthor"),
                 Block = node.TrySelectSingleNode("itunesblock"),
-                Category = node.TrySelectSingleNode("itunescategory"),
                 Image = node.TrySelectSingleNode("itunesimage"),
                 Duration = node.TrySelectSingleNode("itunesduration"),
                 Explicit = node.TrySelectSingleNode("itunesexplicit"),

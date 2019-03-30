@@ -4,8 +4,10 @@
     {
         public string Author { get; set; }
         public string Block { get; set; }
-        public string Category { get; set; }
+        public string Keywords { get; set; }
         public string Image { get; set; }
+        public string Episode { get; set; }
+        public string EpisodeType { get; set; }
         public string Duration { get; set; }
         public string Explicit { get; set; }
         public string IsClosedCaptioned { get; set; }

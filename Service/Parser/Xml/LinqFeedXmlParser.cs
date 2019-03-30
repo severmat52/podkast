@@ -233,8 +233,10 @@ namespace Podly.FeedParser.Xml
             {
                 Author = element.TrySelect("itunesauthor"),
                 Block = element.TrySelect("itunesblock"),
-                Category = element.TrySelect("itunescategory"),
-                Image = element.TrySelect("itunesimage"),
+                Keywords = element.TrySelect("ituneskeywords"),
+                Episode = element.TrySelect("itunesepisode"),
+                EpisodeType = element.TrySelect("itunesepisodeType"),
+                Image = element.TrySelect("itunesimage", "href"),
                 Duration = element.TrySelect("itunesduration"),
                 Explicit = element.TrySelect("itunesexplicit"),
                 IsClosedCaptioned = element.TrySelect("itunesisClosedCaptioned"),
