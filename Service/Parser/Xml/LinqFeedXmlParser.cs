@@ -241,9 +241,6 @@ namespace Podly.FeedParser.Xml
                 Explicit = element.TrySelect("itunesexplicit"),
                 IsClosedCaptioned = element.TrySelect("itunesisClosedCaptioned"),
                 Order = element.TrySelect("itunesorder"),
-                Complete = element.TrySelect("itunescomplete"),
-                NewFeedUrl = element.TrySelect("itunesnew-feed-url"),
-                Owner = element.TrySelect("itunesowner"),
                 SubTitle = element.TrySelect("itunessubtitle"),
                 Summary = element.TrySelect("itunessummary")
             };

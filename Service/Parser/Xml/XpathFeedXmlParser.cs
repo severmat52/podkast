@@ -223,9 +223,6 @@ namespace Podly.FeedParser.Xml
                 Explicit = node.TrySelectSingleNode("itunesexplicit"),
                 IsClosedCaptioned = node.TrySelectSingleNode("itunesisClosedCaptioned"),
                 Order = node.TrySelectSingleNode("itunesorder"),
-                Complete = node.TrySelectSingleNode("itunescomplete"),
-                NewFeedUrl = node.TrySelectSingleNode("itunesnew-feed-url"),
-                Owner = node.TrySelectSingleNode("itunesowner"),
                 SubTitle = node.TrySelectSingleNode("itunessubtitle"),
                 Summary = node.TrySelectSingleNode("itunessummary")
             };

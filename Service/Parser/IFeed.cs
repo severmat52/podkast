@@ -1,4 +1,5 @@
-﻿using System;
+﻿using podcastmaster.Service.iTunesFeedParsing;
+using System;
 using System.Collections.Generic;
 
 namespace Podly.FeedParser
@@ -42,6 +43,11 @@ namespace Podly.FeedParser
         /// </summary>
         FeedType FeedType { get; }
 
+        /// <summary>
+        /// iTunes head level data
+        /// <itunes:category>History</itunes:category>
+        /// </summary>
+        ITunesFeedData ITunesData { get; set; }
         /// <summary>
         /// Returns a list of all of the items in the feed.
         /// </summary>

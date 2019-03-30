@@ -1,4 +1,5 @@
-﻿using System;
+﻿using podcastmaster.Service.iTunesFeedParsing;
+using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
@@ -59,6 +60,9 @@ namespace Podly.FeedParser
         {
             get; set;
         }
+
+        public ITunesFeedData ITunesData { get; set; }
+
 
         #endregion
 

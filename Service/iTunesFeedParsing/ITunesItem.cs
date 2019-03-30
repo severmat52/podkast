@@ -12,9 +12,6 @@
         public string Explicit { get; set; }
         public string IsClosedCaptioned { get; set; }
         public string Order { get; set; }
-        public string Complete { get; set; }
-        public string NewFeedUrl { get; set; }
-        public string Owner { get; set; }
         public string SubTitle { get; set; }
         public string Summary { get; set; }
     }
