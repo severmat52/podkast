@@ -117,7 +117,7 @@ namespace Podly.FeedParser.Xml
             item.Link = linkNode == null ? string.Empty : linkNode.Value;
 
             item.ItunesItem = ParseItemForItunesData(itemNode);
-            
+
             var categoryNode = itemNode.Element(Atom10Namespace + "category");
 
             if (categoryNode != null)
@@ -184,6 +184,7 @@ namespace Podly.FeedParser.Xml
 
         protected virtual BaseFeedItem ParseRss20SingleItem(XElement itemNode)
         {
+            
             var titleNode = itemNode.Element("title");
             var datePublishedNode = itemNode.Element("pubDate");
             var authorNode = itemNode.Element("author");
@@ -230,19 +231,19 @@ namespace Podly.FeedParser.Xml
         {
             var item  = new ITunesItem
             {
-                Author = element.TrySelect("itunes:author"),
-                Block = element.TrySelect("itunes:block"),
-                Category = element.TrySelect("itunes:category"),
-                Image = element.TrySelect("itunes:image"),
-                Duration = element.TrySelect("itunes:durations"),
-                Explicit = element.TrySelect("itunes:explicit"),
-                IsClosedCaptioned = element.TrySelect("itunes:isClosedCaptioned"),
-                Order = element.TrySelect("itunes:order"),
-                Complete = element.TrySelect("itunes:complete"),
-                NewFeedUrl = element.TrySelect("itunes:new-feed-url"),
-                Owner = element.TrySelect("itunes:owner"),
-                SubTitle = element.TrySelect("itunes:subtitle"),
-                Summary = element.TrySelect("itunes:summary")
+                Author = element.TrySelect("itunesauthor"),
+                Block = element.TrySelect("itunesblock"),
+                Category = element.TrySelect("itunescategory"),
+                Image = element.TrySelect("itunesimage"),
+                Duration = element.TrySelect("itunesduration"),
+                Explicit = element.TrySelect("itunesexplicit"),
+                IsClosedCaptioned = element.TrySelect("itunesisClosedCaptioned"),
+                Order = element.TrySelect("itunesorder"),
+                Complete = element.TrySelect("itunescomplete"),
+                NewFeedUrl = element.TrySelect("itunesnew-feed-url"),
+                Owner = element.TrySelect("itunesowner"),
+                SubTitle = element.TrySelect("itunessubtitle"),
+                Summary = element.TrySelect("itunessummary")
             };
             return item;
         }

@@ -216,19 +216,19 @@ namespace Podly.FeedParser.Xml
         {
             var item  = new ITunesItem
             {
-                Author = node.TrySelectSingleNode("itunes:author"),
-                Block = node.TrySelectSingleNode("itunes:block"),
-                Category = node.TrySelectSingleNode("itunes:category"),
-                Image = node.TrySelectSingleNode("itunes:image"),
-                Duration = node.TrySelectSingleNode("itunes:durations"),
-                Explicit = node.TrySelectSingleNode("itunes:explicit"),
-                IsClosedCaptioned = node.TrySelectSingleNode("itunes:isClosedCaptioned"),
-                Order = node.TrySelectSingleNode("itunes:order"),
-                Complete = node.TrySelectSingleNode("itunes:complete"),
-                NewFeedUrl = node.TrySelectSingleNode("itunes:new-feed-url"),
-                Owner = node.TrySelectSingleNode("itunes:owner"),
-                SubTitle = node.TrySelectSingleNode("itunes:subtitle"),
-                Summary = node.TrySelectSingleNode("itunes:summary")
+                Author = node.TrySelectSingleNode("itunesauthor"),
+                Block = node.TrySelectSingleNode("itunesblock"),
+                Category = node.TrySelectSingleNode("itunescategory"),
+                Image = node.TrySelectSingleNode("itunesimage"),
+                Duration = node.TrySelectSingleNode("itunesduration"),
+                Explicit = node.TrySelectSingleNode("itunesexplicit"),
+                IsClosedCaptioned = node.TrySelectSingleNode("itunesisClosedCaptioned"),
+                Order = node.TrySelectSingleNode("itunesorder"),
+                Complete = node.TrySelectSingleNode("itunescomplete"),
+                NewFeedUrl = node.TrySelectSingleNode("itunesnew-feed-url"),
+                Owner = node.TrySelectSingleNode("itunesowner"),
+                SubTitle = node.TrySelectSingleNode("itunessubtitle"),
+                Summary = node.TrySelectSingleNode("itunessummary")
             };
             return item;
         }

@@ -61,8 +61,9 @@ namespace Podly.FeedParser
 //            var feedxml = this.EndDownloadXml(feedXmlResult).FeedContent;
 //#endif
 
-            var feedtype = this.CheckFeedType(feedxml);
-            return this.CreateFeed(feeduri, feedtype, feedxml);
+            var xml = feedxml.Replace("itunes:","itunes");
+            var feedtype = this.CheckFeedType(xml);
+            return this.CreateFeed(feeduri, feedtype, xml);
 
         }
 
@@ -174,6 +175,5 @@ namespace Podly.FeedParser
         }
 
         #endregion
-
     }
 }
