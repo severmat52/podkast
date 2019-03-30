@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using podcastmaster.Service.Parser;
 
 namespace Podly.FeedParser
 {
@@ -20,7 +21,11 @@ namespace Podly.FeedParser
         #endregion
 
         #region data members
-
+        protected ITunesItem _itunesItem;
+        public ITunesItem ItunesItem{
+            get => _itunesItem;
+            set => this._itunesItem = value;
+        }
         protected string _title;
         public string Title
         {

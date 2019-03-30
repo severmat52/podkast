@@ -107,7 +107,9 @@ namespace Podly.FeedParser.Xml
                 Author = authorNode == null ? string.Empty : authorNode.InnerText,
                 Id = idNode == null ? string.Empty : idNode.InnerText,
                 Content = contentNode == null ? string.Empty : contentNode.InnerText,
-                Link = linkNode == null ? string.Empty : linkNode.InnerText
+                Link = linkNode == null ? string.Empty : linkNode.InnerText,
+                ItunesItem = ParseItemForItunesData(itemNode)
+                
             };
 
             var categoryNodes = itemNode.SelectNodes("atom:category/atom:term", NsManager);
@@ -194,7 +196,8 @@ namespace Podly.FeedParser.Xml
                 Comments = commentsNode == null ? string.Empty : commentsNode.InnerText,
                 Id = idNode == null ? string.Empty : idNode.InnerText,
                 Content = contentNode == null ? string.Empty : contentNode.InnerText,
-                Link = linkNode == null ? string.Empty : linkNode.InnerText
+                Link = linkNode == null ? string.Empty : linkNode.InnerText,
+                ItunesItem = ParseItemForItunesData(itemNode)
             };
 
             var categoryNodes = itemNode.SelectNodes("category");

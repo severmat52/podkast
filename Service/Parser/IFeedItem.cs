@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using podcastmaster.Service.Parser;
 
 namespace Podly.FeedParser
 {
@@ -8,6 +9,7 @@ namespace Podly.FeedParser
     /// </summary>
     public interface IFeedItem
     {
+        ITunesItem ItunesItem { get; set; }
         /// <summary>
         /// The title of the synidcation feed entry.
         /// </summary>
