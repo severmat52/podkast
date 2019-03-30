@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
+using podcastmaster.Service.Parser;
+using podcastmaster;
 
 namespace Podly.FeedParser.Xml
 {
@@ -114,6 +116,8 @@ namespace Podly.FeedParser.Xml
             item.Content = contentNode == null ? string.Empty : contentNode.Value;
             item.Link = linkNode == null ? string.Empty : linkNode.Value;
 
+            item.ItunesItem = ParseItemForItunesData(itemNode);
+            
             var categoryNode = itemNode.Element(Atom10Namespace + "category");
 
             if (categoryNode != null)
@@ -203,6 +207,8 @@ namespace Podly.FeedParser.Xml
             item.MediaLength = SafeGetAttribute(enclosureNode, "length");
             item.MediaType = SafeGetAttribute(enclosureNode, "type");
 
+            item.ItunesItem = ParseItemForItunesData(itemNode);
+
             var categoryNodes = itemNode.Elements("category");
             foreach (var categoryNode in categoryNodes)
             {
@@ -220,6 +226,26 @@ namespace Podly.FeedParser.Xml
             return attribute == null ? null : attribute.Value;
         }
 
+        private ITunesItem ParseItemForItunesData(XElement element)
+        {
+            var item  = new ITunesItem
+            {
+                Author = element.TrySelect("itunes:author"),
+                Block = element.TrySelect("itunes:block"),
+                Category = element.TrySelect("itunes:category"),
+                Image = element.TrySelect("itunes:image"),
+                Duration = element.TrySelect("itunes:durations"),
+                Explicit = element.TrySelect("itunes:explicit"),
+                IsClosedCaptioned = element.TrySelect("itunes:isClosedCaptioned"),
+                Order = element.TrySelect("itunes:order"),
+                Complete = element.TrySelect("itunes:complete"),
+                NewFeedUrl = element.TrySelect("itunes:new-feed-url"),
+                Owner = element.TrySelect("itunes:owner"),
+                SubTitle = element.TrySelect("itunes:subtitle"),
+                Summary = element.TrySelect("itunes:summary")
+            };
+            return item;
+        }
         #endregion
 
         #endregion
