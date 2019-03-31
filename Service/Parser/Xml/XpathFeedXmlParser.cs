@@ -228,7 +228,6 @@ namespace Podly.FeedParser.Xml
             };
             return item;
         }
-
         #endregion
     }
 }

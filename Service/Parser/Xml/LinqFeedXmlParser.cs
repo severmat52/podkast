@@ -3,6 +3,8 @@ using System.Linq;
 using System.Xml.Linq;
 using podcastmaster.Service.Parser;
 using podcastmaster;
+using podcastmaster.Service.iTunesFeedParsing;
+using System.Collections.Generic;
 
 namespace Podly.FeedParser.Xml
 {
@@ -227,24 +229,66 @@ namespace Podly.FeedParser.Xml
             return attribute == null ? null : attribute.Value;
         }
 
-        private ITunesItem ParseItemForItunesData(XElement element)
+        private ITunesItem ParseItemForItunesData(XElement item)
         {
-            var item  = new ITunesItem
+            var data  = new ITunesItem
             {
-                Author = element.TrySelect("itunesauthor"),
-                Block = element.TrySelect("itunesblock"),
-                Keywords = element.TrySelect("ituneskeywords"),
-                Episode = element.TrySelect("itunesepisode"),
-                EpisodeType = element.TrySelect("itunesepisodeType"),
-                Image = element.TrySelect("itunesimage", "href"),
-                Duration = element.TrySelect("itunesduration"),
-                Explicit = element.TrySelect("itunesexplicit"),
-                IsClosedCaptioned = element.TrySelect("itunesisClosedCaptioned"),
-                Order = element.TrySelect("itunesorder"),
-                SubTitle = element.TrySelect("itunessubtitle"),
-                Summary = element.TrySelect("itunessummary")
+                Author = item.TrySelect("itunesauthor"),
+                Block = item.TrySelect("itunesblock"),
+                Keywords = item.TrySelect("ituneskeywords"),
+                Episode = item.TrySelect("itunesepisode"),
+                EpisodeType = item.TrySelect("itunesepisodeType"),
+                Image = item.TrySelect("itunesimage", "href"),
+                Duration = item.TrySelect("itunesduration"),
+                Explicit = item.TrySelect("itunesexplicit"),
+                IsClosedCaptioned = item.TrySelect("itunesisClosedCaptioned"),
+                Order = item.TrySelect("itunesorder"),
+                SubTitle = item.TrySelect("itunessubtitle"),
+                Summary = item.TrySelect("itunessummary")
             };
-            return item;
+            return data;
+        }
+
+        private ITunesFeedData ParseChannelForITunesData(XElement channel)
+        {
+            var data = new ITunesFeedData
+            {
+                Author = channel.TrySelect("itunesauthor"),
+                Block = channel.TrySelect("itunesblock"),
+                Image = channel.TrySelect("itunesimage", "href"),
+                Explicit = channel.TrySelect("itunesexplicit"),
+                Complete = channel.TrySelect("itunescomplete"),
+                NewFeedUrl = channel.TrySelect("itunesnew-feed-url"),
+                Owner = channel.TrySelect("itunesowner"),
+                Summary = channel.TrySelect("itunessummary"),
+                Language = channel.TrySelect("ituneslanguage"),
+            };
+            return data;
+        }
+
+        private IEnumerable<ITunesCategory> ParseChannelForCategory(XElement channel)
+        {
+            var categories = channel.Elements("itunescategory");
+            foreach (var category in categories)
+            {
+                var attribute = category.TryGetAttribute("text");
+                var itunesCategory = new ITunesCategory
+                {
+                    Category = attribute,
+                    SubCategories = ParseCategoryForSubCategories(category)
+                };
+                yield return itunesCategory;
+            }
+        }
+
+        private IEnumerable<string> ParseCategoryForSubCategories(XElement category)
+        {
+            var subCategories = category.Elements("itunescategory");
+            foreach (var subCategory in subCategories)
+            {
+                var subCat = subCategory.TryGetAttribute("text");
+                yield return subCat;
+           }
         }
         #endregion
 

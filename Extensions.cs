@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -35,12 +36,6 @@ namespace podcastmaster
             return value == null
                 ? default(string)
                 : value.Value;
-        }
-
-        public static string TrySelectMultiple(this XElement element, string selector, string attribute)
-        {
-            var node = element.Elements(selector);
-            return null;
         }
     }
 }
