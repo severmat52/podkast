@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Reflection;
 using Podly.FeedParser.Xml;
 
 namespace Podly.FeedParser
