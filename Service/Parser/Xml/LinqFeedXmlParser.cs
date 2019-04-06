@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
-using podcastmaster.Service.Parser;
 using podcastmaster;
-using podcastmaster.Service.iTunesFeedParsing;
 using System.Collections.Generic;
+using Podkast.Shared.Dto.Parser;
 
 namespace Podly.FeedParser.Xml
 {

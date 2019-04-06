@@ -1,4 +1,6 @@
-﻿namespace Podly.FeedParser.Xml
+﻿using Podkast.Shared.Dto.Parser;
+
+namespace Podly.FeedParser.Xml
 {
     public interface IFeedXmlParser
     {

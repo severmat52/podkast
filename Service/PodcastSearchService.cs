@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Podkast.Shared.Dto.Parser;
+using Podkast.Shared.Dto.Search;
 using Podly.FeedParser;
-using PodKastService.Contracts.Models;
 
 namespace ReactCoreNet.Service
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using Podkast.Shared.Dto.Parser;
 using Podly.FeedParser.Xml;
 
 namespace Podly.FeedParser

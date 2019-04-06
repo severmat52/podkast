@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Xml;
-using System.Xml.XPath;
-using podcastmaster.Service.Parser;
 using podcastmaster;
+using Podkast.Shared.Dto.Parser;
 
 namespace Podly.FeedParser.Xml
 {

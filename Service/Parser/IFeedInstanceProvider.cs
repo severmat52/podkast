@@ -1,4 +1,6 @@
-﻿namespace Podly.FeedParser
+﻿using Podkast.Shared.Dto.Parser;
+
+namespace Podly.FeedParser
 {
     public interface IFeedInstanceProvider
     {

@@ -1,4 +1,5 @@
-﻿using PodKastService.Contracts.Models;
+﻿using Podkast.Shared.Dto.Parser;
+using Podkast.Shared.Dto.Search;
 using Podly.FeedParser;
 using System;
 using System.Threading.Tasks;

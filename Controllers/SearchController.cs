@@ -32,10 +32,10 @@ namespace Podcast.Controllers
             try
             {
                 var podcast = await _service.GetPodcastById(id);
-                var result = _service.GetPodcastFeed(new System.Uri(podcast.Podcasts.First().FeedUrl));
+                var result = _service.GetPodcastFeed(new Uri(podcast.Podcasts.First().FeedUrl));
                 return Ok(result);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 return BadRequest();
             }

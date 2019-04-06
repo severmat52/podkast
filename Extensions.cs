@@ -11,14 +11,14 @@ namespace podcastmaster
         public static string TrySelectSingleNode(this XmlNode @this, string selector){
             var node = @this.SelectSingleNode(selector);
             return node == null
-                ? default(string)
+                ? default
                 : node.InnerText;
         }
 
         public static string TrySelect(this XElement element, string selector){
             var node = element.Element(selector);
             return node == null
-                ? default(string)
+                ? default
                 : node.Value;
         }
 
@@ -26,7 +26,7 @@ namespace podcastmaster
         {
             var node = element.Element(selector);
             return node == null
-                ? default(string)
+                ? default
                 : node.TryGetAttribute(attribute);
         }
 
@@ -34,7 +34,7 @@ namespace podcastmaster
         {
             var value = element.Attribute(attribute);
             return value == null
-                ? default(string)
+                ? default
                 : value.Value;
         }
     }

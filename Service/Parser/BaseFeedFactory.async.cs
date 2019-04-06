@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Podkast.Shared.Dto.Parser;
+using System;
 using System.Threading.Tasks;
 
 namespace Podly.FeedParser
