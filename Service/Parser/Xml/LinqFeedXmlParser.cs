@@ -55,6 +55,9 @@ namespace Podly.FeedParser.Xml
             var titleNode = channel.Element(Atom10Namespace + "title");
             atomFeed.Title = titleNode.Value;
 
+
+            atomFeed.ITunesData = ParseChannelForITunesData(channel);
+
             var linkNode = channel.Element(Atom10Namespace + "author") != null ? channel.Element(Atom10Namespace + "author").Element(Atom10Namespace + "uri") : null;
 
             if (linkNode == null)
@@ -147,6 +150,8 @@ namespace Podly.FeedParser.Xml
 
             var linkNode = channel.Element("link");
             rssFeed.Link = linkNode == null ? string.Empty : linkNode.Value;
+
+            rssFeed.ITunesData = ParseChannelForITunesData(channel);
 
             var dateTimeNode = (from dateSelector in channel.Elements("pubDate")
                                 select dateSelector).FirstOrDefault();
