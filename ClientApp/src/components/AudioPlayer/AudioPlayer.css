@@ -1,0 +1,57 @@
+.audio-player{
+    position: fixed;
+    z-index: 1031;
+    bottom: 0; 
+    height: 80px;
+    color: #222;
+    background-color: #222;
+    overflow: hidden;
+    border: solid 1px #375a7f;
+    width: 100%;
+} 
+
+#audio-player-button-collapsed{
+    position: fixed;
+    z-index: 1031;
+    bottom: 0; 
+    border: solid 1px #375a7f;
+}
+
+#audio-player-grid{
+    display: grid;
+    grid-template-columns: 33% 67%;
+}
+
+.podcast-player-controls-grid{
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+}
+
+#audioSlider{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+}
+
+label {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.audioPlayerButton{
+    height: 45px;
+    width: 45px;
+    border: solid;
+    border-width: 5px;
+    border-radius: 20%;
+    border-color: #375a7f;
+    background-color: #222;
+    color:  #375a7f;
+}
+
+.collapseOrOpenButton{
+    border: solid #375a7f;
+    background-color: #222;
+    color:  #375a7f;
+}

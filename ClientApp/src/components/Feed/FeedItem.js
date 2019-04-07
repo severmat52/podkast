@@ -2,17 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './FeedItem.css';
 
-const FeedItem = ({item}) => (
+const FeedItem = ({item, onPlay}) => (
     <li>
           <div className='podcast-feed-container'>
           <div className='feed-grid-container'>
-                <div className='feed-item'>
-                         {}
-                </div>
                <div className='feed-item'>
-                <p>
+                <p id='feedItemTitle'>
                 {item.title}
-
                 </p>
                </div>
                <div className='feed-item'>
@@ -24,6 +20,12 @@ const FeedItem = ({item}) => (
                     <p>
                         {item.itunesItem.duration}
                     </p>
+               </div>
+               <div className='feed-item'>
+                         {}
+                </div>
+               <div>
+                 {/* //  <button onClick={() => }> Play </button> */}
                </div>
            </div>
           </div>

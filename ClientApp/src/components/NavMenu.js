@@ -8,7 +8,7 @@ export default props => (
   <Navbar fixedTop fluid bsStyle="primary" collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to={'/'}>podcast_master</Link>
+        <Link to={'/'}> PodKasts </Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
@@ -16,17 +16,7 @@ export default props => (
       <Nav>
         <LinkContainer to={'/'} exact>
           <NavItem >
-            <Glyphicon glyph='home' /> Home
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/counter'}>
-          <NavItem>
-            <Glyphicon glyph='education' /> Counter
-          </NavItem>
-        </LinkContainer>
-        <LinkContainer to={'/fetchdata'}>
-          <NavItem>
-            <Glyphicon glyph='th-list' /> Fetch data
+            <Glyphicon glyph='home' /> Search
           </NavItem>
         </LinkContainer>
       </Nav>
