@@ -17,18 +17,23 @@ const FeedItem = ({item}) => (
                </div>
                <div className='feed-item'>
                     <p>
-                        {item.datePublished}
+                        {formatDate(item.datePublished)}
                     </p>
                 </div>
                <div className='feed-item'>
                     <p>
-                        {item.mediaLength}
+                        {item.itunesItem.duration}
                     </p>
                </div>
            </div>
           </div>
     </li>
 );
+
+function formatDate(dateString){
+    let date = new Date(dateString);
+    return date.getMonth() + 1 + '/' + date.getDate() + '/' +  date.getFullYear();
+}
 
 FeedItem.PropTypes = {
     item: PropTypes.shape({
@@ -40,7 +45,11 @@ FeedItem.PropTypes = {
         content: PropTypes.string,
         mediaUrl: PropTypes.string,
         mediaLength: PropTypes.string,
-        mediaType: PropTypes.string
+        mediaType: PropTypes.string,
+        itunesItem: PropTypes.shape({
+            duration: PropTypes.string
+        })
+
     })
 };
 
