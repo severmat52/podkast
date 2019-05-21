@@ -2,7 +2,7 @@
   
   .feed-grid-container {
       display: grid;
-      grid-template-columns: 70% 10% 10% 10% ;
+      grid-template-columns: 60% 10% 10% 10% 10% ;
       border-bottom: 1px solid gray;
       height: 72px;
     }
@@ -11,6 +11,7 @@
       font-size: 15px;
       text-align: left;
       align-content: left;
+      position: absolute;
       margin: auto;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-overflow: ellipsis;

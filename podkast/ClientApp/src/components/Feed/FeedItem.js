@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './FeedItem.css';
+import AudioButtonSmall  from '../Core/AudioButtonSmall';
 
 const FeedItem = ({item, onPlay}) => (
     <li>
@@ -10,6 +11,9 @@ const FeedItem = ({item, onPlay}) => (
                 <p id='feedItemTitle'>
                 {item.title}
                 </p>
+               </div>
+               <div className='feed-item'>
+                    <AudioButtonSmall />
                </div>
                <div className='feed-item'>
                     <p>
