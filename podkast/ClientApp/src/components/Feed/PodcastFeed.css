@@ -1,0 +1,12 @@
+img {
+    border-radius: 10%;
+    height: 20%;
+    width: 20%;
+}
+
+.podcast-details-container{
+    grid-template-columns: 33% 66%;
+    grid-template-rows: repeat(3,33%);
+}
+
+

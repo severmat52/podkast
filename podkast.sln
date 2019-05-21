@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "podkast", "podkast\podkast.csproj", "{4D39E609-F225-454A-98E5-0DBCD96D46EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Podkast.Shared", "podkast.shared\Podkast.Shared.csproj", "{7AE0C4C6-B491-4140-B7C2-285A769729C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D39E609-F225-454A-98E5-0DBCD96D46EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D39E609-F225-454A-98E5-0DBCD96D46EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D39E609-F225-454A-98E5-0DBCD96D46EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D39E609-F225-454A-98E5-0DBCD96D46EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE0C4C6-B491-4140-B7C2-285A769729C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE0C4C6-B491-4140-B7C2-285A769729C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE0C4C6-B491-4140-B7C2-285A769729C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE0C4C6-B491-4140-B7C2-285A769729C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53865DD5-914C-4F3C-B77D-993BCFD555F0}
+	EndGlobalSection
+EndGlobal
