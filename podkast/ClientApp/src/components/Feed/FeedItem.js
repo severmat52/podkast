@@ -7,26 +7,41 @@ const FeedItem = ({item, onPlay}) => (
     <li>
           <div className='podcast-feed-container'>
           <div className='feed-grid-container'>
-               <div className='feed-item'>
-                <p id='feedItemTitle'>
-                {item.title}
+               <div className='feed-item' id='feedItemTitle'>
+               <div className='inner-feed-item'>
+               <p>
+                    {  item.title }
                 </p>
                </div>
-               <div className='feed-item'>
-                    <AudioButtonSmall />
+                
                </div>
                <div className='feed-item'>
+               <div className='inner-feed-item'>
+
+                    <AudioButtonSmall />
+                    </div>
+               </div>
+               <div className='feed-item'>
+               <div className='inner-feed-item'>
+
                     <p>
                         {formatDate(item.datePublished)}
                     </p>
                 </div>
+                </div>
                <div className='feed-item'>
+               <div className='inner-feed-item'>
+
                     <p>
                         {item.itunesItem.duration}
                     </p>
+                    </div>
                </div>
                <div className='feed-item'>
+               <div className='inner-feed-item'>
+
                          {}
+                </div>
                 </div>
                <div>
                  {/* //  <button onClick={() => }> Play </button> */}

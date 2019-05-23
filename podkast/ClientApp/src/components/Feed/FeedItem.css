@@ -1,28 +1,27 @@
-
-  
-  .feed-grid-container {
+    .feed-grid-container {
       display: grid;
-      grid-template-columns: 60% 10% 10% 10% 10% ;
+      grid-template-columns: 60% 10% 10% 10% 10%;
+      grid-template-rows: auto;
       border-bottom: 1px solid gray;
-      height: 72px;
+      align-items: center;
     }
   
     .feed-item {
       font-size: 15px;
+      height: 72px;
       text-align: left;
-      align-content: left;
-      position: absolute;
+      align-content: center;
       margin: auto;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-overflow: ellipsis;
       color: rgb(211, 211, 211);
-      vertical-align: middle;
+    }
+
+    .inner-feed-item{
+      margin: 0 auto;
     }
 
     #feedItemTitle{
-      align-content: flex-start;
-      position: absolute;
-      left: 50px;
+      text-align: left;
+      margin-left: 0px;
     }
-
-    
