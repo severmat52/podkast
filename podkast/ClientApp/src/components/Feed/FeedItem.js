@@ -18,7 +18,7 @@ const FeedItem = ({item, onPlay}) => (
                <div className='feed-item'>
                <div className='inner-feed-item'>
 
-                    <AudioButtonSmall />
+                    <AudioButtonSmall glyphicon='glyphicon-play-circle' />
                     </div>
                </div>
                <div className='feed-item'>

@@ -7,10 +7,9 @@
     }
   
     .feed-item {
-      font-size: 15px;
-      height: 72px;
       text-align: left;
       align-content: center;
+      padding: 15px;
       margin: auto;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-overflow: ellipsis;
@@ -18,6 +17,7 @@
     }
 
     .inner-feed-item{
+      font-size: 15px;
       margin: 0 auto;
     }
 
