@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/podcast-master.csproj"
+                "${workspaceFolder}/podkast/podkast.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

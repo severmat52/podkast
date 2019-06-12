@@ -3,3 +3,10 @@
 *.ide-wal
 .vs/podkast/v15/Server/sqlite3/storage.ide-shm
 .vs/podkast/v15/Server/sqlite3/storage.ide
+*.dll
+*.cache
+*.cache
+podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.deps.json
+podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.deps.json
+podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.dll
+podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.pdb
