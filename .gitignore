@@ -15,3 +15,4 @@ podkast/ClientApp/package-lock.json
 podkast.shared/obj/podkast.shared.csproj.nuget.g.targets
 podkast.shared/obj/Podkast.Shared.csproj.nuget.g.props
 podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.pdb
+podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.deps.json
