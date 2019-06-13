@@ -2,6 +2,7 @@ const requestSearchPodcastsType = 'REQUEST_SEARCH_PODCASTS';
 const receiveSearchPodcastsType = 'RECEIVE_SEARCH_PODCASTS';
 const requestPodcastFeedType = 'REQUEST_GET_FEED';
 const receivePodcastFeedType = 'RECEIVE_PODCAST_FEED';
+const playPodcastType = 'PLAY_PODCAST_TYPE';
 
 const initialState = {
   podcasts: [],
@@ -12,6 +13,13 @@ const initialState = {
 };
 
 export const actionCreators = {
+
+  playPodcast: podcast => (dispatch) => {
+    dispatch({
+      type: playPodcastType,
+      podcast
+    });
+  },
 
   requestSearchPodcasts: searchString => async (dispatch) => {
     dispatch({
@@ -73,6 +81,12 @@ export const reducer = (state, action) => {
       ...state,
       loadingFeed: false,
       feed: action.feed
+    }
+  }
+  if(action.type === playPodcastType){
+    return {
+      ...state,
+      selectedPodcast: action.podcast
     }
   }
 
