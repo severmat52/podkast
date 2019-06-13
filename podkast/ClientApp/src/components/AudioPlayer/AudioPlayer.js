@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import { Glyphicon } from 'react-bootstrap';
 import './AudioPlayer.css';
-import { actionCreators } from '../../store/AudioPlayer';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import AudioButton from '../Core/AudioButton';
+import { Howl, Howler } from 'howler';
 
 class AudioPlayer extends Component{
+    constructor(props){
+        base(props);
+        this.podcastUrl = props.selectedPodcast;
+        this.sound = undefined;
+        this.state = {
+            playing: false,
+            collapsed: false
+        };
+    }
+
     render(){
-        this.props.reloadAudio();
-        return this.props.collapsed 
+        if(this.props.selectedPodcast !== undefined && this.podcastUrl !== this.props.selectedPodcast){
+            this.podcastUrl = this.props.selectedPodcast;
+            this.sound = new Howl({src: this.podcastUrl});
+            this.sound.once('load', () => this.sound.play());
+        }
+
+        return this.state.collapsed 
             ? this.renderCollapsed()
             : this.renderAudioPlayer();
-    }
-
-    componentDidMount(){
-        this.addAudioEventListeners(this.props.audio);
-    }
-
-    componentDidUpdate(prevProps){
-        this.addAudioEventListeners(this.props.audio);
-    }
-
-    addAudioEventListeners(audio){
-        if(audio){
-            audio.loadedmetadata = () => this.setState({});
-            audio.ontimeupdate = () => this.setState({});
-        }
     }
 
     renderAudioPlayer(){
         return(
             <div className='audio-player'>
-             <button className='collapseOrOpenButton' onClick={this.props.collapseAudioPlayer}>
+             <button className='collapseOrOpenButton' onClick={() => this.collapseOrOpen()}>
                 <Glyphicon glyph='chevron-up' />
             </button>
             <div id='audio-player-grid'>
@@ -62,31 +61,49 @@ class AudioPlayer extends Component{
     }
 
     getFormattedMinutesAndSeconds(time){
-        const minutes = Math.round(time / 60);
-        const seconds = Math.round(time % 60);
+        if(this.sound === undefined) return;
+
+        let duration = this.sound.duration();
+        const minutes = Math.round(duration / 60);
+        const seconds = Math.round(duration % 60);
         const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
         return `${minutes}:${formattedSeconds}`;
     }
 
 
     renderCollapsed(){
-        return  (<button id='audio-player-button-collapsed' className='collapseOrOpenButton' onClick={this.props.collapseAudioPlayer}>
+        return  (<button id='audio-player-button-collapsed' className='collapseOrOpenButton' onClick={() => this.collapseOrOpen()}>
                 <Glyphicon glyph='chevron-up' />
             </button>);
     }
 
     renderPlayOrPause(){
-        if(!this.props.playing){
-            return <AudioButton buttonStyle={controlButtonStyle} glyphicon='play' onClick={() => this.props.playAudioPlayer(this.props.audio)} />
+        if(!this.state.playing){
+            return <AudioButton buttonStyle={controlButtonStyle} glyphicon='play' onClick={() => this.play()} />
         }
-        return <AudioButton buttonStyle={controlButtonStyle} glyphicon='pause' onClick={() => this.props.pauseAudioPlayer(this.props.audio)} />;
+        return <AudioButton buttonStyle={controlButtonStyle} glyphicon='pause' onClick={() => this.pause()} />;
+    }
+
+    play(){
+        if(this.sound !== undefined){
+            this.sound.play();
+        }
+    }
+
+    pause(){
+        if(this.sound !== undefined){
+            this.sound.pause();
+        }
+    }
+
+    collapseOrOpen(){
+        this.setState({collapsed: !this.state.collapsed});
     }
 }
 
 
 export default connect(
-    state => state.audioPlayer,
-    dispatch => bindActionCreators(actionCreators, dispatch)
+    state => state.search
   )(AudioPlayer);
 
   const controlButtonStyle = {

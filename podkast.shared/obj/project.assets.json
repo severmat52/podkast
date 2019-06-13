@@ -30,7 +30,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "OQNaSFWvFiiJ7FU0Zf3rasOwkErp6ImFv3G3qP0agRDnMjffU3zHkDUgZArWVWMCzdEHeJdXgsmwDZuahK08Qg==",
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -178,30 +178,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Matthew\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/severmat52/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\Podkast.Shared.csproj",
+      "projectUniqueName": "/Users/severmat52/Desktop/podkast/podkast.shared/Podkast.Shared.csproj",
       "projectName": "Podkast.Shared",
-      "projectPath": "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\Podkast.Shared.csproj",
-      "packagesPath": "C:\\Users\\Matthew\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\obj\\",
+      "projectPath": "/Users/severmat52/Desktop/podkast/podkast.shared/Podkast.Shared.csproj",
+      "packagesPath": "/Users/severmat52/.nuget/packages/",
+      "outputPath": "/Users/severmat52/Desktop/podkast/podkast.shared/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Matthew\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/severmat52/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
