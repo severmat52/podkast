@@ -16,3 +16,8 @@ podkast.shared/obj/podkast.shared.csproj.nuget.g.targets
 podkast.shared/obj/Podkast.Shared.csproj.nuget.g.props
 podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.pdb
 podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.deps.json
+podkast.shared/obj/project.assets.json
+podkast.shared/obj/Podkast.Shared.csproj.nuget.g.props
+podkast.shared/obj/Podkast.Shared.csproj.nuget.cache
+podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.csproj.CoreCompileInputs.cache
+podkast.shared/obj/Debug/netstandard2.0/podkast.shared.assets.cache

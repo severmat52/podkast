@@ -3,12 +3,12 @@ import { Glyphicon } from 'react-bootstrap';
 import './AudioPlayer.css';
 import { connect } from 'react-redux';
 import AudioButton from '../Core/AudioButton';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 
 class AudioPlayer extends Component{
     constructor(props){
-        base(props);
-        this.podcastUrl = props.selectedPodcast;
+        super(props);
+        this.podcastUrl = props.selectedPodcastEpisode;
         this.sound = undefined;
         this.state = {
             playing: false,
@@ -17,10 +17,15 @@ class AudioPlayer extends Component{
     }
 
     render(){
-        if(this.props.selectedPodcast !== undefined && this.podcastUrl !== this.props.selectedPodcast){
-            this.podcastUrl = this.props.selectedPodcast;
+        if(this.props.selectedPodcastEpisode !== undefined && this.podcastUrl !== this.props.selectedPodcastEpisode){
+            this.podcastUrl = this.props.selectedPodcastEpisode;
             this.sound = new Howl({src: this.podcastUrl});
-            this.sound.once('load', () => this.sound.play());
+            let self = this;
+            this.sound.once('load', () => {
+                self.sound.play();
+                self.setState({playing: true});
+                console.log(`playing ${this.sound}`);
+            });
         }
 
         return this.state.collapsed 
@@ -47,13 +52,13 @@ class AudioPlayer extends Component{
                         <AudioButton buttonStyle={controlButtonStyle} glyphicon='fast-forward' />
                     </div>
                 </div>
-                <div id='audioSlider'>
-                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.currentTime)}</label>
+                <div id='audioSlider'>15
+                    <label>{this.getFormattedMinutesAndSeconds(this.sound !== undefined ? this.sound.seek() : 0)}</label>
                     <input type='range'
-                           value={this.props.audio.currentTime}
-                           onChange={e => this.props.seekTo(this.props.audio, e.target.value)}
-                           max={this.props.audio.duration}/>
-                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.duration)}</label>
+                           value={this.sound !== undefined ? this.sound.seek() : 0}
+                           onChange={e => console.log('on changed2')} //this.props.seekTo(this.props.audio, e.target.value)}
+                           max={this.sound !== undefined ? this.sound.duration : 0}/>
+                    <label>{this.getFormattedMinutesAndSeconds(this.sound !== undefined ? this.sound.duration : 0)}</label>
                 </div>
             </div>
             </div>
@@ -63,9 +68,8 @@ class AudioPlayer extends Component{
     getFormattedMinutesAndSeconds(time){
         if(this.sound === undefined) return;
 
-        let duration = this.sound.duration();
-        const minutes = Math.round(duration / 60);
-        const seconds = Math.round(duration % 60);
+        const minutes = Math.round(time / 60);
+        const seconds = Math.round(time % 60);
         const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
         return `${minutes}:${formattedSeconds}`;
     }

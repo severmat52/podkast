@@ -9,7 +9,8 @@ const initialState = {
   feed: [],
   searching: false,
   loadingFeed: false,
-  selectedPodcast: undefined
+  selectedPodcast: undefined,
+  selectedPodcastEpisode: undefined
 };
 
 export const actionCreators = {
@@ -86,7 +87,7 @@ export const reducer = (state, action) => {
   if(action.type === playPodcastType){
     return {
       ...state,
-      selectedPodcast: action.podcast
+      selectedPodcastEpisode: action.podcast
     }
   }
 
