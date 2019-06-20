@@ -3,7 +3,7 @@ import { Glyphicon } from 'react-bootstrap';
 import './AudioPlayer.css';
 import { connect } from 'react-redux';
 import AudioButton from '../Core/AudioButton';
-import { Howl } from 'howler';
+import { Howl, Howler } from 'howler';
 
 class AudioPlayer extends Component{
     constructor(props){
@@ -14,18 +14,22 @@ class AudioPlayer extends Component{
             playing: false,
             collapsed: false
         };
+        Howler.volume(1);
+
     }
 
     render(){
         if(this.props.selectedPodcastEpisode !== undefined && this.podcastUrl !== this.props.selectedPodcastEpisode){
             this.podcastUrl = this.props.selectedPodcastEpisode;
-            this.sound = new Howl({src: this.podcastUrl});
+            this.sound = new Howl({src: [this.podcastUrl]});
+            this.sound.load();
             let self = this;
             this.sound.once('load', () => {
                 self.sound.play();
-                self.setState({playing: true});
-                console.log(`playing ${this.sound}`);
+                console.log('playing');
             });
+            this.sound.play();
+            this.setState({playing: true});
         }
 
         return this.state.collapsed 
@@ -52,7 +56,7 @@ class AudioPlayer extends Component{
                         <AudioButton buttonStyle={controlButtonStyle} glyphicon='fast-forward' />
                     </div>
                 </div>
-                <div id='audioSlider'>15
+                <div id='audioSlider'>
                     <label>{this.getFormattedMinutesAndSeconds(this.sound !== undefined ? this.sound.seek() : 0)}</label>
                     <input type='range'
                            value={this.sound !== undefined ? this.sound.seek() : 0}
