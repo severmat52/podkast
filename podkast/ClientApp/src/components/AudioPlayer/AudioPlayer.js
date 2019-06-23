@@ -8,18 +8,21 @@ import AudioButton from '../Core/AudioButton';
 
 class AudioPlayer extends Component{
     render(){
-        this.props.reloadAudio();
-        return this.props.collapsed 
+        if(this.props.audioPlayer.episode !== this.props.search.selectedEpisode){
+            this.props.playEpisode(this.props.search.selectedEpisode);
+        }
+        
+        return this.props.audioPlayer.collapsed 
             ? this.renderCollapsed()
             : this.renderAudioPlayer();
     }
 
     componentDidMount(){
-        this.addAudioEventListeners(this.props.audio);
+        this.addAudioEventListeners(this.props.audioPlayer.audio);
     }
 
     componentDidUpdate(prevProps){
-        this.addAudioEventListeners(this.props.audio);
+        this.addAudioEventListeners(this.props.audioPlayer.audio);
     }
 
     addAudioEventListeners(audio){
@@ -49,12 +52,12 @@ class AudioPlayer extends Component{
                     </div>
                 </div>
                 <div id='audioSlider'>
-                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.currentTime)}</label>
+                    <label>{this.getFormattedMinutesAndSeconds(this.props.audioPlayer.audio.currentTime)}</label>
                     <input type='range'
-                           value={this.props.audio.currentTime}
-                           onChange={e => this.props.seekTo(this.props.audio, e.target.value)}
-                           max={this.props.audio.duration}/>
-                    <label>{this.getFormattedMinutesAndSeconds(this.props.audio.duration)}</label>
+                           value={this.props.audioPlayer.audio.currentTime}
+                           onChange={e => this.props.seekTo(this.props.audioPlayer.audio, e.target.value)}
+                           max={this.props.audioPlayer.audio.duration}/>
+                    <label>{this.getFormattedMinutesAndSeconds(this.props.audioPlayer.audio.duration)}</label>
                 </div>
             </div>
             </div>
@@ -76,16 +79,16 @@ class AudioPlayer extends Component{
     }
 
     renderPlayOrPause(){
-        if(!this.props.playing){
-            return <AudioButton buttonStyle={controlButtonStyle} glyphicon='play' onClick={() => this.props.playAudioPlayer(this.props.audio)} />
+        if(!this.props.audioPlayer.playing){
+            return <AudioButton buttonStyle={controlButtonStyle} glyphicon='play' onClick={() => this.props.playAudioPlayer(this.props.audioPlayer.audio)} />
         }
-        return <AudioButton buttonStyle={controlButtonStyle} glyphicon='pause' onClick={() => this.props.pauseAudioPlayer(this.props.audio)} />;
+        return <AudioButton buttonStyle={controlButtonStyle} glyphicon='pause' onClick={() => this.props.pauseAudioPlayer(this.props.audioPlayer.audio)} />;
     }
 }
 
 
 export default connect(
-    state => state.audioPlayer,
+    state => state,
     dispatch => bindActionCreators(actionCreators, dispatch)
   )(AudioPlayer);
 

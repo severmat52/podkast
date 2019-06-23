@@ -1,19 +1,16 @@
 const requestCollapseType = 'REQUEST_COLLAPSE_TYPE';
 const requestPlayType = 'REQUEST_PLAY_TYPE';
 const requestPauseType = 'REQUEST_PAUSE_TYPE';
-const reloadAudioType = 'RELOAD_AUDIO_TYPE';
 const playEpisodeType = 'PLAY_EPISODE_TYPE';
 
 const initialState = {
   collapsed: false,
   playing: false,
+  episode: undefined,
   audio: new Audio('https://rss.art19.com/episodes/902742a8-53d8-4125-b64d-139595e6bfe3.mp3')
 };
 
 export const actionCreators = {
-    reloadAudio:  () => (dispatch) => {
-      dispatch({type: reloadAudioType});
-    },
     collapseAudioPlayer: () => (dispatch) => {
         dispatch({ type: requestCollapseType });
     },
@@ -66,15 +63,10 @@ export const reducer = (state, action) => {
     }
   }
 
-  if(action.type === reloadAudioType){
-    return {
-      ...state
-    };
-  }
-
-  if(action.type == playEpisodeType){
+  if(action.type === playEpisodeType){
     return{
       ...state,
+      episode: action.episode,
       audio: new Audio(action.episode)
     };
   }
