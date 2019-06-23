@@ -2,6 +2,7 @@ const requestCollapseType = 'REQUEST_COLLAPSE_TYPE';
 const requestPlayType = 'REQUEST_PLAY_TYPE';
 const requestPauseType = 'REQUEST_PAUSE_TYPE';
 const reloadAudioType = 'RELOAD_AUDIO_TYPE';
+const playEpisodeType = 'PLAY_EPISODE_TYPE';
 
 const initialState = {
   collapsed: false,
@@ -24,13 +25,18 @@ export const actionCreators = {
 
     playAudioPlayer: (audio) => (dispatch) => {
       audio.play();
-      dispatch({type: requestPlayType})
+      dispatch({type: requestPlayType});
     }, 
 
     seekTo: (audio, seconds) => (dispatch) => {
       if(audio){
         audio.currentTime = seconds;
       }
+    },
+
+    playEpisode: (episode) => (dispatch) => {
+      dispatch({type: playEpisodeType,
+                episode});
     }
 
     
@@ -63,6 +69,13 @@ export const reducer = (state, action) => {
   if(action.type === reloadAudioType){
     return {
       ...state
+    };
+  }
+
+  if(action.type == playEpisodeType){
+    return{
+      ...state,
+      audio: new Audio(action.episode)
     };
   }
 
