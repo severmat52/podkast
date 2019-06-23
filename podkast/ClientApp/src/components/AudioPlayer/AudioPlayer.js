@@ -11,7 +11,7 @@ class AudioPlayer extends Component{
         if(this.props.audioPlayer.episode !== this.props.search.selectedEpisode){
             this.props.playEpisode(this.props.search.selectedEpisode);
         }
-        
+
         return this.props.audioPlayer.collapsed 
             ? this.renderCollapsed()
             : this.renderAudioPlayer();
@@ -21,13 +21,15 @@ class AudioPlayer extends Component{
         this.addAudioEventListeners(this.props.audioPlayer.audio);
     }
 
-    componentDidUpdate(prevProps){
+    componentDidUpdate(){
         this.addAudioEventListeners(this.props.audioPlayer.audio);
     }
 
     addAudioEventListeners(audio){
         if(audio){
-            audio.loadedmetadata = () => this.setState({});
+            audio.onloadedmetadata = () => this.setState({});
+            audio.onloadeddata = () => this.setState({});
+            audio.oncanplay = () => this.setState({});
             audio.ontimeupdate = () => this.setState({});
         }
     }
