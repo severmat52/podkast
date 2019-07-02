@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matthew\\Desktop\\podkast.shared\\Podkast.Shared.csproj": {}
+    "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\Podkast.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matthew\\Desktop\\podkast.shared\\Podkast.Shared.csproj": {
+    "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\Podkast.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matthew\\Desktop\\podkast.shared\\Podkast.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\Podkast.Shared.csproj",
         "projectName": "Podkast.Shared",
-        "projectPath": "C:\\Users\\Matthew\\Desktop\\podkast.shared\\Podkast.Shared.csproj",
+        "projectPath": "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\Podkast.Shared.csproj",
         "packagesPath": "C:\\Users\\Matthew\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matthew\\Desktop\\podkast.shared\\obj\\",
+        "outputPath": "C:\\Users\\Matthew\\Desktop\\podkast\\podkast.shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

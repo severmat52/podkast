@@ -9,6 +9,7 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <AssemblyName>Podkast</AssemblyName>
     <RootNamespace>Podkast</RootNamespace>
+    <UserSecretsId>9ba30068-9f1d-4177-ab73-ed8bda73960e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
