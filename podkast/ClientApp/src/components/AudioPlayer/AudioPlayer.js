@@ -9,7 +9,7 @@ import AudioButton from '../Core/AudioButton';
 class AudioPlayer extends Component{
     render(){
         if(this.props.audioPlayer.episode !== this.props.search.selectedEpisode){
-            this.props.playEpisode(this.props.search.selectedEpisode);
+            this.props.playEpisode(this.props.search.selectedEpisode, () => this.props.updateAudio());
         }
 
         return this.props.audioPlayer.collapsed 
@@ -18,11 +18,11 @@ class AudioPlayer extends Component{
     }
 
     componentDidMount(){
-        this.addAudioEventListeners(this.props.audioPlayer.audio);
+        //this.addAudioEventListeners(this.props.audioPlayer.audio);
     }
 
     componentDidUpdate(){
-        this.addAudioEventListeners(this.props.audioPlayer.audio);
+       // this.addAudioEventListeners(this.props.audioPlayer.audio);
     }
 
     addAudioEventListeners(audio){

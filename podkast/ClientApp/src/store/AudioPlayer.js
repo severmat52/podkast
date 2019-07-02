@@ -2,6 +2,7 @@ const requestCollapseType = 'REQUEST_COLLAPSE_TYPE';
 const requestPlayType = 'REQUEST_PLAY_TYPE';
 const requestPauseType = 'REQUEST_PAUSE_TYPE';
 const playEpisodeType = 'PLAY_EPISODE_TYPE';
+const updateAudioType= 'UPDATE_AUDIO_TYPE';
 
 const initialState = {
   collapsed: false,
@@ -23,7 +24,7 @@ export const actionCreators = {
     playAudioPlayer: (audio) => (dispatch) => {
       audio.play();
       dispatch({type: requestPlayType});
-    }, 
+    },
 
     seekTo: (audio, seconds) => (dispatch) => {
       if(audio){
@@ -31,12 +32,15 @@ export const actionCreators = {
       }
     },
 
-    playEpisode: (episode) => (dispatch) => {
+    playEpisode: (episode, action) => (dispatch) => {
       dispatch({type: playEpisodeType,
-                episode});
+                episode, action});
+    },
+
+    updateAudio: () => (dispatch) => {
+      dispatch({type: updateAudioType});
     }
 
-    
 };
 
 export const reducer = (state, action) => {
@@ -64,12 +68,31 @@ export const reducer = (state, action) => {
   }
 
   if(action.type === playEpisodeType){
+    let audio = new Audio(action.episode);
+    addAudioEventHandlers(audio, action.action);
     return{
       ...state,
       episode: action.episode,
-      audio: new Audio(action.episode)
+      audio
+    };
+  }
+
+  if(action.type === updateAudioType){
+    return {
+      ...state
     };
   }
 
   return state;
 };
+
+function addAudioEventHandlers(audio, action){
+  if(audio){
+    if(audio){
+      audio.onloadedmetadata = () => action();
+      audio.onloadeddata = () => action();
+      audio.oncanplay = () => action();
+      audio.ontimeupdate = () => action();
+  }
+  }
+}
