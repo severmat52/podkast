@@ -21,8 +21,3 @@ podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.csproj.CoreCompileInputs.
 .vs/podkast/v15/.suo
 .vs/podkast/v15/.suo
 .vs/podkast/v15/.suo
-*.dll
-*.pdb
-*.cache
-podkast.shared/bin/Debug/netstandard2.0/Podkast.Shared.dll
-.vs/podkast/v15/.suo
