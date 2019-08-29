@@ -1,9 +1,0 @@
-C:\Users\Matthew\Desktop\podkast\podkast.shared\bin\Release\netstandard2.0\Podkast.Shared.deps.json
-C:\Users\Matthew\Desktop\podkast\podkast.shared\bin\Release\netstandard2.0\Podkast.Shared.dll
-C:\Users\Matthew\Desktop\podkast\podkast.shared\bin\Release\netstandard2.0\Podkast.Shared.pdb
-C:\Users\Matthew\Desktop\podkast\podkast.shared\obj\Release\netstandard2.0\Podkast.Shared.csprojAssemblyReference.cache
-C:\Users\Matthew\Desktop\podkast\podkast.shared\obj\Release\netstandard2.0\Podkast.Shared.csproj.CoreCompileInputs.cache
-C:\Users\Matthew\Desktop\podkast\podkast.shared\obj\Release\netstandard2.0\Podkast.Shared.AssemblyInfoInputs.cache
-C:\Users\Matthew\Desktop\podkast\podkast.shared\obj\Release\netstandard2.0\Podkast.Shared.AssemblyInfo.cs
-C:\Users\Matthew\Desktop\podkast\podkast.shared\obj\Release\netstandard2.0\Podkast.Shared.dll
-C:\Users\Matthew\Desktop\podkast\podkast.shared\obj\Release\netstandard2.0\Podkast.Shared.pdb
