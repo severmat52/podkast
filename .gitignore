@@ -21,3 +21,15 @@ podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.csproj.CoreCompileInputs.
 .vs/podkast/v15/.suo
 .vs/podkast/v15/.suo
 .vs/podkast/v15/.suo
+/.vs/podkast/v16/Server/sqlite3/storage.ide
+/.vs/podkast/v16/Server/sqlite3/db.lock
+/.vs/podkast/v16/.suo
+/.vs/podkast/DesignTimeBuild/.dtbcache
+/.vs/podkast/config/applicationhost.config
+podkast.shared/obj/*
+podkast.shared/bin/*
+*.dll
+podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.pdb
+*.pdb
+/podkast/bin
+/podkast/obj
