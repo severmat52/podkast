@@ -13,5 +13,5 @@ export default () => (
   </Layout>
   <AudioPlayer />
   </div>
-  
+
 );
