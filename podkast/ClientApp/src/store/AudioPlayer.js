@@ -8,7 +8,7 @@ const initialState = {
   collapsed: false,
   playing: false,
   episode: undefined,
-  audio: new Audio('https://rss.art19.com/episodes/902742a8-53d8-4125-b64d-139595e6bfe3.mp3')
+  audio: null
 };
 
 export const actionCreators = {

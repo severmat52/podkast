@@ -38,7 +38,8 @@ class PodcastFeed extends Component{
     renderFeedItems(){
             if(this.props.feed !== undefined){
                 const items = this.props.feed.items;
-                const mappedItems = items.map(i => <FeedItem item={i} onPlay={() => this.props.selectedPlayEpisode(i.link)} />);
+                const mappedItems = items.map(i => <FeedItem item={i}
+                                                             onPlay={() => this.props.selectedPlayEpisode(i.link)} />);
                 return <ul>
                     {mappedItems}
                 </ul>;
