@@ -54,9 +54,9 @@ class AudioPlayer extends Component{
                     </div>
                 </div>
                 <div id='audioSlider'>
-                    <label>{this.getFormattedMinutesAndSeconds(this.props.audioPlayer.audio.currentTime)}</label>
+                    <label>{this.getFormattedMinutesAndSeconds(this.getCurrentTime())}</label>
                     <input type='range'
-                           value={this.getCurrentValue()}
+                           value={this.getCurrentTime()}
                            onChange={e => this.props.seekTo(this.props.audioPlayer.audio, e.target.value)}
                            max={this.getMaxInput()}/>
                     <label>{this.getCurrentDuration()}</label>
@@ -70,7 +70,7 @@ class AudioPlayer extends Component{
         return this.props.audioPlayer.audio !== null;
     }
 
-    getCurrentvalue(){
+    getCurrentTime(){
         return this.hasAudio()
             ? this.props.audioPlayer.audio.currentTime
             : 0;
