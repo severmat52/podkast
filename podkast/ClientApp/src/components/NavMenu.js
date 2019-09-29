@@ -20,6 +20,13 @@ export default props => (
           </NavItem>
         </LinkContainer>
       </Nav>
+      <Nav>
+        <LinkContainer to={'/about'} exact>
+          <NavItem >
+            <Glyphicon glyph='text-background' /> About
+          </NavItem>
+        </LinkContainer>
+      </Nav>
     </Navbar.Collapse>
   </Navbar>
 );
