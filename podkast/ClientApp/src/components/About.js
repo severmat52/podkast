@@ -1,13 +1,18 @@
 import React from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
 
 export default props => (
-  <Grid fluid>
-    <Row>
-      <Col sm={3}>
-      </Col>
-      <Col sm={9}>
-      </Col>
-    </Row>
-  </Grid>
+  <div>
+      <p style={pStyle}>This is a hobby project built by </p>
+      <a style={marginStyle} href="https://github.com/severmat52">severmat52</a>
+  </div>
 );
+
+const marginStyle ={
+  marginLeft: '10%',
+  marginTop: '20%'
+};
+
+const pStyle ={
+  ...marginStyle,
+  color: 'white'
+};

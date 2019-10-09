@@ -85,13 +85,18 @@ namespace iTunesSearch.Library
         /// <returns></returns>
         async private Task<T> MakeAPICall<T>(string apiCall)
         {
-            HttpClient client = new HttpClient();
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    //  Make an async call to get the response
+                    var objString = await client.GetStringAsync(apiCall).ConfigureAwait(false);
 
-            //  Make an async call to get the response
-            var objString = await client.GetStringAsync(apiCall).ConfigureAwait(false);
-
-            //  Deserialize and return
-            return (T)DeserializeObject<T>(objString);
+                    //  Deserialize and return
+                    return (T)DeserializeObject<T>(objString);
+                }
+            }
         }
 
         /// <summary>

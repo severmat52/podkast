@@ -13,7 +13,7 @@ const FeedItem = ({item, onPlay}) => (
                     {  item.title }
                 </p>
                </div>
-                
+
                </div>
                <div className='feed-item'>
                <div className='inner-feed-item'>

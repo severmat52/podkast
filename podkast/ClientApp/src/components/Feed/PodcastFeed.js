@@ -8,6 +8,7 @@ import './PodcastFeed.css';
 
 class PodcastFeed extends Component{
     render(){
+        console.log(`itunes item ${this.props.selectedPodcast.iTunesItem}`)
         return(
             <div>
                 <div className='podcast-details'>
@@ -30,11 +31,19 @@ class PodcastFeed extends Component{
             <ul>
                 <li> Title: {podcast.artistName} </li>
                 <li> Episode Count: {podcast.trackCount} </li>
+                {this.renderDescription(this.props.selectedPodcast)}
             </ul>
         </div>
             </div>;
     }
-
+    renderDescription(podkast){
+        if(podkast.itunesItem){
+            if(podkast.itunesItem.summary){
+                return <li> Summary: {podkast.itunesItem.summary} </li>;
+            }
+        }
+        return <div></div>;
+    }
     renderFeedItems(){
             if(this.props.feed !== undefined){
                 const items = this.props.feed.items;

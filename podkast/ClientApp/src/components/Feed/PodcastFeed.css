@@ -4,6 +4,10 @@ img {
     width: 20%;
 }
 
+
+li {
+    color: white
+}
 .podcast-details-container{
     grid-template-columns: 33% 66%;
     display: grid;
