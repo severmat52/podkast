@@ -8,11 +8,10 @@ import './PodcastFeed.css';
 
 class PodcastFeed extends Component{
     render(){
-        console.log(`itunes item ${this.props.selectedPodcast.iTunesItem}`)
         return(
             <div>
                 <div className='podcast-details'>
-                {this.renderPodcastDetails()}
+                    {this.renderPodcastDetails()}
                 </div>
                 <div className='feed-list'>
                     { this.props.loadingFeed ? this.renderLoadingSpinner() : this.renderFeedItems() }
@@ -23,26 +22,33 @@ class PodcastFeed extends Component{
 
     renderPodcastDetails(){
         const podcast = this.props.selectedPodcast;
+
         return <div className='podcast-details-container'>
                     <div className='podcast-details-grid-item'>
                         <img src={podcast.artworkUrl100}  />
                     </div>
                     <div className='podcast-details-grid-item'>
             <ul>
-                <li> Title: {podcast.artistName} </li>
-                <li> Episode Count: {podcast.trackCount} </li>
-                {this.renderDescription(this.props.selectedPodcast)}
+                {this.renderFeedHeaderItems()}
             </ul>
         </div>
             </div>;
     }
-    renderDescription(podkast){
-        if(podkast.itunesItem){
-            if(podkast.itunesItem.summary){
-                return <li> Summary: {podkast.itunesItem.summary} </li>;
-            }
+    
+    renderFeedHeaderItems(){
+        const feed = this.props.feed;
+        const podcast = this.props.selectedPodcast;
+
+        if(feed && feed.iTunesData){
+                return <ul>
+                            <li> Title: {podcast.artistName} </li>
+                            <li> Episode Count: {feed.items.length} </li>
+                            <li> Summary: {feed.iTunesData.summary} </li>
+                        </ul>;
         }
-        return <div></div>;
+        return <ul>
+                            <li> Title: {podcast.artistName} </li>
+                        </ul>;;
     }
     renderFeedItems(){
             if(this.props.feed !== undefined){
