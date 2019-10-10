@@ -59,7 +59,7 @@ class AudioPlayer extends Component{
                            value={this.getCurrentTime()}
                            onChange={e => this.props.seekTo(this.props.audioPlayer.audio, e.target.value)}
                            max={this.getMaxInput()}/>
-                    <label>{this.getCurrentDuration()}</label>
+                    <label>{this.getFormattedMinutesAndSeconds(this.getCurrentDuration())}</label>
                 </div>
             </div>
             </div>
