@@ -1,8 +1,8 @@
-const requestSearchPodcastsType = 'REQUEST_SEARCH_PODCASTS';
-const receiveSearchPodcastsType = 'RECEIVE_SEARCH_PODCASTS';
-const requestPodcastFeedType = 'REQUEST_GET_FEED';
-const receivePodcastFeedType = 'RECEIVE_PODCAST_FEED';
-const selectPlayEpisodeType = 'SELECT_PLAY_EPISODE_TYPE';
+export const requestSearchPodcastsType = 'REQUEST_SEARCH_PODCASTS';
+export const receiveSearchPodcastsType = 'RECEIVE_SEARCH_PODCASTS';
+export const requestPodcastFeedType = 'REQUEST_GET_FEED';
+export const receivePodcastFeedType = 'RECEIVE_PODCAST_FEED';
+export const selectPlayEpisodeType = 'SELECT_PLAY_EPISODE_TYPE';
 
 const initialState = {
   podcasts: [],
