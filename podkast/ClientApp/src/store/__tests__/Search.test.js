@@ -20,13 +20,13 @@ describe('Search Actions', () => {
         const podcastListResult = 'Test result';
 
         fetchMock.getOnce(`api/Search/${searchString}`,{
-            body: { podcasts: podcastListResult },
+            body: { results: podcastListResult },
             headers: {'content-type': 'application/json'}
         });
 
         const expectedActions = [
             { type: requestSearchPodcastsType, searchString },
-            { type: receiveSearchPodcastsType, searchString, podcastListResult }
+            { type: receiveSearchPodcastsType, searchString, podcasts: podcastListResult }
         ];
 
         const store = mockStore({});
