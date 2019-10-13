@@ -33,3 +33,4 @@ podkast.shared/obj/Debug/netstandard2.0/Podkast.Shared.pdb
 *.pdb
 /podkast/bin
 /podkast/obj
+.vs/podkast/v16/Server/sqlite3/storage.ide-shm
