@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import './NavMenu.css';
 
 export default props => (
-  <Navbar fixedTop fluid bsStyle="primary" collapseOnSelect>
+  <Navbar fixedTop fluid bsStyle="inverse" collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to={'/'}> PodKasts </Link>

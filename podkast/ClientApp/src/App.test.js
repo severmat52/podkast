@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
+import { initialSearchState } from './store/Search';
+import { initialAudioState } from './store/AudioPlayer';
 
 it('renders without crashing', () => {
 
@@ -13,7 +15,10 @@ it('renders without crashing', () => {
     getState: () => ({ ...state })
   });
 
-  const store = storeFake({});
+  const store = storeFake({
+      search: initialSearchState,
+      audioPlayer: initialAudioState
+  });
 
   const div = document.createElement('div');
 

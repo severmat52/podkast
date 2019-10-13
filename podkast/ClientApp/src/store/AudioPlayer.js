@@ -4,7 +4,7 @@ const requestPauseType = 'REQUEST_PAUSE_TYPE';
 const playEpisodeType = 'PLAY_EPISODE_TYPE';
 const updateAudioType= 'UPDATE_AUDIO_TYPE';
 
-const initialState = {
+export const initialAudioState = {
   collapsed: false,
   playing: false,
   episode: undefined,
@@ -44,7 +44,7 @@ export const actionCreators = {
 };
 
 export const reducer = (state, action) => {
-  state = state || initialState;
+  state = state || initialAudioState;
 
   if (action.type === requestCollapseType) {
     return {
