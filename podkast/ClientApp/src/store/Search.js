@@ -1,5 +1,6 @@
 export const requestSearchPodcastsType = 'REQUEST_SEARCH_PODCASTS';
 export const receiveSearchPodcastsType = 'RECEIVE_SEARCH_PODCASTS';
+export const errorSearchPodcastsType = 'ERROR_SEARCH_PODCASTS';
 export const requestPodcastFeedType = 'REQUEST_GET_FEED';
 export const receivePodcastFeedType = 'RECEIVE_PODCAST_FEED';
 export const selectPlayEpisodeType = 'SELECT_PLAY_EPISODE_TYPE';
@@ -10,23 +11,43 @@ export const initialSearchState = {
   searching: false,
   loadingFeed: false,
   selectedPodcast: undefined,
-  selectedEpisode: undefined
+  selectedEpisode: undefined,
+  searchError: undefined
 };
 
 export const actionCreators = {
 
   requestSearchPodcasts: searchString => async (dispatch) => {
+   
     dispatch({
       type: requestSearchPodcastsType,
       searchString
     });
+    
     const url = `api/Search/${searchString}`;
-    const response = await fetch(url);
-    const podcasts = (await response.json()).results;
-    dispatch({
-      type: receiveSearchPodcastsType,
-      searchString,
-      podcasts
+    fetch(url)
+    .then(response => {
+      response.json()
+      .then(json =>{
+        dispatch({
+          type: receiveSearchPodcastsType,
+          searchString,
+          podcasts : json.results
+        });
+      })
+      .catch(error => {
+        dispatch({
+          type: errorSearchPodcastsType,
+          error
+        });
+      });
+    })
+    .catch(error =>
+    {
+        dispatch({
+          type: errorSearchPodcastsType,
+          error
+        });
     });
   },
 
@@ -87,6 +108,13 @@ export const reducer = (state, action) => {
     return {
       ...state,
       selectedEpisode: action.episode
+    };
+  }
+
+  if(action.type === errorSearchPodcastsType){
+    return {
+      ...state,
+      searchError: action.error
     };
   }
 

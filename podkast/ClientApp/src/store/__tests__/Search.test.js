@@ -1,4 +1,4 @@
-import { actionCreators, requestSearchPodcastsType, receiveSearchPodcastsType} from '../Search';
+import { actionCreators, requestSearchPodcastsType, receiveSearchPodcastsType, errorSearchPodcastsType} from '../Search';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
@@ -35,4 +35,27 @@ describe('Search Actions', () => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
+
+    it('request search error returns error actions', () => {
+
+        const searchString = 'test search';
+        const error = 'error';
+
+        fetchMock.getOnce(`api/Search/${searchString}`,{
+            throws: { message: error }
+        });
+
+        const expectedActions = [
+            { type: requestSearchPodcastsType, searchString },
+            { type: errorSearchPodcastsType, error }
+        ];
+
+        const store = mockStore({});
+
+        return store.dispatch(actionCreators.requestSearchPodcasts(searchString)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+
 });
