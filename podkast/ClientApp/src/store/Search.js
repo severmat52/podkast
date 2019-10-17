@@ -33,12 +33,11 @@ export const actionCreators = {
         searchString,
         podcasts
       });
-  
     }
     catch(error){
       dispatch({
         type: errorSearchPodcastsType,
-        error});
+        error: error.message});
     }
 
   },
