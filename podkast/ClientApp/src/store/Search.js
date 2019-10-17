@@ -3,6 +3,7 @@ export const receiveSearchPodcastsType = 'RECEIVE_SEARCH_PODCASTS';
 export const errorSearchPodcastsType = 'ERROR_SEARCH_PODCASTS';
 export const requestPodcastFeedType = 'REQUEST_GET_FEED';
 export const receivePodcastFeedType = 'RECEIVE_PODCAST_FEED';
+export const errorRequestFeedType = 'ERROR_REQUEST_FEED';
 export const selectPlayEpisodeType = 'SELECT_PLAY_EPISODE_TYPE';
 
 export const initialSearchState = {
@@ -47,13 +48,20 @@ export const actionCreators = {
       type: requestPodcastFeedType,
       podcast
     });
-    const url = `api/Search/Feed/${podcast.collectionId}`;
+    try {
+      const url = `api/Search/Feed/${podcast.collectionId}`;
     const response = await fetch(url);
     const feed = (await response.json());
     dispatch({
       type: receivePodcastFeedType,
       feed
     });
+    } catch (error) {
+      dispatch({
+        type: errorRequestFeedType,
+        error: error.message
+      });
+    }
   },
 
   selectedPlayEpisode: (episode) => (dispatch) => {

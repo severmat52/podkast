@@ -1,4 +1,7 @@
-import { actionCreators, requestSearchPodcastsType, receiveSearchPodcastsType, errorSearchPodcastsType} from '../Search';
+import { actionCreators, requestSearchPodcastsType, 
+         receiveSearchPodcastsType, errorSearchPodcastsType, 
+         requestPodcastFeedType, errorRequestFeedType,
+        receivePodcastFeedType } from '../Search';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
@@ -53,6 +56,52 @@ describe('Search Actions', () => {
         const store = mockStore({});
 
         return store.dispatch(actionCreators.requestSearchPodcasts(searchString)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    it('request feed error returns error actions', () => {
+
+        const error = 'error';
+        const podcast = { collectionId: 12 };
+        const url = `api/Search/Feed/${podcast.collectionId}`;
+
+        fetchMock.getOnce(url,{
+            throws: { message: error }
+        });
+
+        const expectedActions = [
+            { type: requestPodcastFeedType, podcast },
+            { type: errorRequestFeedType, error }
+        ];
+
+        const store = mockStore({});
+
+        return store.dispatch(actionCreators.requestGetFeed(podcast)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+
+    it('request feed returns success actions', () => {
+
+        const error = 'error';
+        const podcast = { collectionId: 12 };
+        const feed = { test: "feed" };
+        const url = `api/Search/Feed/${podcast.collectionId}`;
+
+        fetchMock.getOnce(url,{
+            body: feed,
+            headers: {'content-type': 'application/json'}
+        });
+
+        const expectedActions = [
+            { type: requestPodcastFeedType, podcast },
+            { type: receivePodcastFeedType, feed }
+        ];
+
+        const store = mockStore({});
+
+        return store.dispatch(actionCreators.requestGetFeed(podcast)).then(() => {
             expect(store.getActions()).toEqual(expectedActions);
         });
     });
