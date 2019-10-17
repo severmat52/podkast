@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const PodcastResult = ({podcast, requestGetFeed}) => (
     <li>
-        <Link to={'/feed'}>
+        <Link to={'/episodes'}>
           <div className='podcast-result-container'
                onClick={() => requestGetFeed(podcast)}>
           <div className='grid-container'>
