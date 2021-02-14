@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './FeedItem.css';
 import AudioButtonSmall  from '../Core/AudioButtonSmall';
 
@@ -55,23 +54,5 @@ function formatDate(dateString){
     let date = new Date(dateString);
     return date.getMonth() + 1 + '/' + date.getDate() + '/' +  date.getFullYear();
 }
-
-FeedItem.PropTypes = {
-    item: PropTypes.shape({
-        title: PropTypes.string,
-        author: PropTypes.string,
-        id: PropTypes.string,
-        link: PropTypes.string,
-        datePublished: PropTypes.string,
-        content: PropTypes.string,
-        mediaUrl: PropTypes.string,
-        mediaLength: PropTypes.string,
-        mediaType: PropTypes.string,
-        itunesItem: PropTypes.shape({
-            duration: PropTypes.string
-        })
-
-    })
-};
 
 export default FeedItem;

@@ -25,7 +25,7 @@ class PodcastFeed extends Component{
 
         return <div className='podcast-details-container'>
                     <div className='podcast-details-grid-item'>
-                        <img src={podcast.artworkUrl100}  />
+                        <img src={podcast.artworkUrl100}  alt='podcastImage' />
                     </div>
                     <div className='podcast-details-grid-item'>
             <ul>
@@ -34,7 +34,7 @@ class PodcastFeed extends Component{
         </div>
             </div>;
     }
-    
+
     renderFeedHeaderItems(){
         const feed = this.props.feed;
         const podcast = this.props.selectedPodcast;
@@ -47,9 +47,10 @@ class PodcastFeed extends Component{
                         </ul>;
         }
         return <ul>
-                            <li> Title: {podcast.artistName} </li>
-                        </ul>;;
+                    <li> Title: {podcast.artistName} </li>
+              </ul>;
     }
+
     renderFeedItems(){
             if(this.props.feed !== undefined){
                 const items = this.props.feed.items;
@@ -71,7 +72,7 @@ class PodcastFeed extends Component{
             loading={true} />
         </div>
       }
-} 
+}
 
 export default connect(
     state => state.search,
