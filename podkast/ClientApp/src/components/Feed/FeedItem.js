@@ -1,50 +1,37 @@
 import React from 'react';
 import './FeedItem.css';
 import AudioButtonSmall  from '../Core/AudioButtonSmall';
+import InnerFeedItem from './InnerFeedItem';
 
 const FeedItem = ({item, onPlay}) => (
     <li>
           <div className='podcast-feed-container'>
           <div className='feed-grid-container'>
-               <div className='feed-item' id='feedItemTitle'>
-               <div className='inner-feed-item'>
-               <p>
-                    {  item.title }
-                </p>
-               </div>
+               <InnerFeedItem id='feedItemTitle'>
+                  <p>
+                        {  item.title }
+                  </p>
+               </InnerFeedItem>
 
-               </div>
-               <div className='feed-item'>
-               <div className='inner-feed-item'>
-
+               <InnerFeedItem>
                     <AudioButtonSmall glyphicon='play' onClick={() => onPlay()} />
-                    </div>
-               </div>
-               <div className='feed-item'>
-               <div className='inner-feed-item'>
+                </InnerFeedItem>
 
+               <InnerFeedItem>
                     <p>
                         {formatDate(item.datePublished)}
                     </p>
-                </div>
-                </div>
-               <div className='feed-item'>
-               <div className='inner-feed-item'>
+                </InnerFeedItem>
 
+               <InnerFeedItem>
                     <p>
                         {item.itunesItem.duration}
                     </p>
-                    </div>
-               </div>
-               <div className='feed-item'>
-               <div className='inner-feed-item'>
+                </InnerFeedItem>
 
+               <InnerFeedItem>
                          {}
-                </div>
-                </div>
-               <div>
-                 {/* //  <button onClick={() => }> Play </button> */}
-               </div>
+                </InnerFeedItem>
            </div>
           </div>
     </li>
