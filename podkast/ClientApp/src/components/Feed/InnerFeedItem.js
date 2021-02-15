@@ -1,9 +1,9 @@
 import React from "react";
 import "./InnerFeedItem.css";
 
-const InnerFeedItem = (display) => (
+const InnerFeedItem = (props) => (
   <div className="feed-item">
-    <div className="inner-feed-item">{display}</div>
+    <div className="inner-feed-item">{props.children}</div>
   </div>
 );
 

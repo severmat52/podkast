@@ -30,7 +30,10 @@ const FeedItem = ({item, onPlay}) => (
                 </InnerFeedItem>
 
                <InnerFeedItem>
-                         {}
+                   <div>
+                       {}
+
+                   </div>
                 </InnerFeedItem>
            </div>
           </div>
