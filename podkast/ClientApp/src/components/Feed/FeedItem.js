@@ -22,11 +22,15 @@ const FeedItem = ({ item, onPlay }) => (
         <InnerFeedItem>
           <p>{item.itunesItem.duration}</p>
         </InnerFeedItem>
+               <InnerFeedItem>
+                   <div>
+                       {}
 
-        <InnerFeedItem>{}</InnerFeedItem>
-      </div>
-    </div>
-  </li>
+                   </div>
+                </InnerFeedItem>
+           </div>
+          </div>
+    </li>
 );
 
 function formatDate(dateString) {
