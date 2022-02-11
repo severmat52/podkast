@@ -21,7 +21,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "ajv": "^6.0.0",
+    "ajv": "^6.12.3",
     "babel-eslint": "^7.2.3",
     "cross-env": "^5.2.1",
     "eslint": "^4.1.1",
